@@ -1,3 +1,3 @@
 # GroceryJoint
 
-First `npm install` then `npm run`.
+First `npm install` then `npm start`.
