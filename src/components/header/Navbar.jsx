@@ -30,8 +30,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-   toolbar: {
-    minHeight: '10px',
+  toolbar: {
+    minHeight: "10px",
   },
   search: {
     margin: "0 7% 0 auto",
