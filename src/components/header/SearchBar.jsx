@@ -41,7 +41,7 @@ export default function SearchBar() {
         <SearchIcon />
       </div>
       <InputBase
-        placeholder="Search Items!!"
+        placeholder="Search Items...."
         classes={{
           root: classes.inputRoot,
           input: classes.inputInput,

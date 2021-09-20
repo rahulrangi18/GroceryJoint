@@ -1,5 +1,6 @@
 import "./style.css";
-
+import logo from '../../images/logo.png'
+import cart from "../../images/cart.png";
 import Location from "./Location";
 import {
   AppBar,
@@ -17,6 +18,10 @@ import SearchBar from "./SearchBar";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 
 const useStyles = makeStyles((theme) => ({
+  logo: {
+    width: "100",
+    marginTop: -7,
+  },
   navbar: {
     background: "#51A66F",
     // display:"flex",
@@ -24,6 +29,9 @@ const useStyles = makeStyles((theme) => ({
   },
   root: {
     flexGrow: 1,
+  },
+   toolbar: {
+    minHeight: '10px',
   },
   search: {
     margin: "0 7% 0 auto",
@@ -103,13 +111,19 @@ const mystyle = {
   fontSize: 30,
   fontFamily: "Arial",
 };
+
 const Navbar = () => {
   const classes = useStyles();
   return (
     // <Box className={classes.navbar} >
     <AppBar color="transparent" className={classes.navbar}>
       <Toolbar>
-        <Typography variant="h4">GroceryJoint</Typography>
+        <img
+          src={logo}
+          alt="logo"
+          className={classes.logo}
+          style={{ width: 100, marginTop: 0 }}
+        />
         <Box boxShadow={2} className={classes.search}>
           <div className={classes.searchIcon}>
             <LocationOnIcon />
@@ -134,8 +148,15 @@ const Navbar = () => {
           <Button className={classes.signup} color="inherit">
             Sign up
           </Button>
+
           <Button className={classes.cart} color="inherit">
-            Cart
+            <img
+              src={cart}
+              alt="cart"
+              className={classes.cart}
+              style={{ width: 40,height:40, marginTop: 0,marginRight:1 }}
+            />
+             Cart
           </Button>
         </Box>
       </Toolbar>
