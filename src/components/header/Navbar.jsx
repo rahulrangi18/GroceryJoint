@@ -18,14 +18,11 @@ import SearchBar from "./SearchBar";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 
 const useStyles = makeStyles((theme) => ({
-  logo: {
-    width: "100",
-    marginTop: -7,
-  },
   navbar: {
-    background: "#51A66F",
+    background: "#44B749",
     // display:"flex",
     paddingLeft: "10%",
+    height: "65px",
   },
   root: {
     flexGrow: 1,
@@ -43,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
     color: "black",
     margin: 15,
     height: 40,
+    boxShadow: "0px 13px 10px -7px rgba(0,0,0,0.1)",
   },
   searchIcon: {
     padding: theme.spacing(2, 2),
@@ -58,11 +56,6 @@ const useStyles = makeStyles((theme) => ({
   },
   inputInput: {
     padding: 5,
-    // padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    // paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    // transition: theme.transitions.create('width'),
-    // width: '100%',
   },
   subheader: {
     margin: "0 15% 0 auto",

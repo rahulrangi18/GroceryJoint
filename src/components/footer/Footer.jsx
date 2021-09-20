@@ -4,7 +4,7 @@ import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 const FooterPagePro = () => {
   return (
     <div>
-      <MDBFooter className="font-small pt-4 mt-4" >
+      <MDBFooter className="font-small pt-4 mt-4">
         <MDBContainer className="text-center text-md-left">
           <MDBRow className="text-center text-md-left mt-3 pb-3">
             <MDBCol md="3" lg="3" xl="3" className="mx-auto mt-3">
@@ -19,18 +19,26 @@ const FooterPagePro = () => {
             </MDBCol>
             <hr className="w-100 clearfix d-md-none" />
             <MDBCol md="2" lg="2" xl="2" className="mx-auto mt-3">
-              <h6 className="text-uppercase mb-4 font-weight-bold">Products</h6>
+              <h6 className="text-uppercase mb-4 font-weight-bold">
+                For Restaurants
+              </h6>
               <p>
-                <a href="#!">MDBootstrap</a>
+                <a href="https://www.zomato.com/partner_with_us">
+                  Add Restaurants
+                </a>
               </p>
               <p>
-                <a href="#!">MDWordPress</a>
+                <a href="https://www.zomato.com/business/apps">Business App</a>
               </p>
               <p>
-                <a href="#!">BrandFlow</a>
+                <a href="https://www.zomato.com/business/widgets">
+                  Restaurants Widgets
+                </a>
               </p>
               <p>
-                <a href="#!">Bootstrap Angular</a>
+                <a href="https://www.zomato.com/business/apps">
+                  Products for Business
+                </a>
               </p>
             </MDBCol>
             <hr className="w-100 clearfix d-md-none" />
@@ -42,10 +50,10 @@ const FooterPagePro = () => {
                 <a href="#!">Your Account</a>
               </p>
               <p>
-                <a href="#!">Become an Affiliate</a>
+                <a href="#!">Recent Orders</a>
               </p>
               <p>
-                <a href="#!">Shipping Rates</a>
+                <a href="#!">Offers</a>
               </p>
               <p>
                 <a href="#!">Help</a>
@@ -58,7 +66,8 @@ const FooterPagePro = () => {
                 <i className="fa fa-home mr-3" /> Ranchi,Jharkhand,India
               </p>
               <p>
-                <i className="fa fa-envelope mr-3" />help@groceryjoint.com
+                <i className="fa fa-envelope mr-3" />
+                help@groceryjoint.com
               </p>
               <p>
                 <i className="fa fa-phone mr-3" /> + 01 234 567 88
