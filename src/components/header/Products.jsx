@@ -15,7 +15,9 @@ const ncard = (val) => {
 const Products = () => {
   return (
     <>
-      {Sdata.map(ncard)}
+      <div>
+        {Sdata.map(ncard)}
+      </div>
     </>
   );
 };

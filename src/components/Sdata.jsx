@@ -9,7 +9,8 @@ const Sdata = [
   {
     id: 2,
     title: "Dhampure Sugar",
-    imgsrc:"https://images-eu.ssl-images-amazon.com/images/I/51EO7BFYc7L._SX300_SY300_QL70_FMwebp_.jpg",
+    imgsrc:
+      "https://images-eu.ssl-images-amazon.com/images/I/51EO7BFYc7L._SX300_SY300_QL70_FMwebp_.jpg",
     sname: "1 Kg",
     link: "https://www.amazon.in/Dhampure-Speciality-Sulphurless-Super-Sugar/dp/B086RLN137/ref=sr_1_4?dchild=1&keywords=Chini&qid=1631096974&s=grocery&sr=1-4",
   },
@@ -51,9 +52,17 @@ const Sdata = [
   {
     id: 8,
     title: "Harpic Toilet Cleaner",
-    imgsrc:"https://images-eu.ssl-images-amazon.com/images/I/51EgcM7MZtL._SX300_SY300_QL70_FMwebp_.jpg",
+    imgsrc:
+      "https://images-eu.ssl-images-amazon.com/images/I/51EgcM7MZtL._SX300_SY300_QL70_FMwebp_.jpg",
     sname: "1 L (pack of 3)",
     link: "https://www.amazon.in/Harpic-Powerplus-Original-1000-Pack/dp/B077MCF1YR/ref=sr_1_7?dchild=1&keywords=Harpic&qid=1632155004&smid=AT95IG9ONZD7S&sr=8-7",
   },
+  /* {
+    id: 9,
+    title: "Harpic Toilet Cleaner",
+    imgsrc:"https://images-eu.ssl-images-amazon.com/images/I/51EgcM7MZtL._SX300_SY300_QL70_FMwebp_.jpg",
+    sname: "1 L (pack of 3)",
+    link: "https://www.amazon.in/Harpic-Powerplus-Original-1000-Pack/dp/B077MCF1YR/ref=sr_1_7?dchild=1&keywords=Harpic&qid=1632155004&smid=AT95IG9ONZD7S&sr=8-7",
+  }, */
 ];
 export default Sdata;

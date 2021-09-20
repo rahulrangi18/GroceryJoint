@@ -1,0 +1,55 @@
+.App {
+  font-family: sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.startingImg {
+  position: relative;
+  width: 100vw;
+  height: 400px;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.6)
+    ),
+    /* url("images/final-bg.png"); */
+  url("https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwallpapersdsc.net%2Fwp-content%2Fuploads%2F2016%2F09%2FFood-HD-Background.png&f=1&nofb=1");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+}
+
+/* .fgfg{
+  color:red;
+} */
+
+.mainHeading {
+  position: absolute;
+  font-family: "Urbanist", sans-serif;
+  font-weight: bolder;
+  color: white;
+  margin-top: 70px;
+
+  /* margin-left: auto;
+  margin-right: auto; */
+  /* left: 0;
+  right: 0; */
+
+  /* top: 50%; 
+  left: 50%; 
+  transform: translate(
+    -50%,
+    -50%
+  );  */
+}
