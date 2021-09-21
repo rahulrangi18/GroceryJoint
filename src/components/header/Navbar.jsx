@@ -1,11 +1,12 @@
+import React,{useState} from "react";
 import "./style.css";
-import logo from "../../images/logo.png";
+import logo from '../../images/logo.png'
 import cart from "../../images/cart.png";
 import Location from "./Location";
 import SearchIcon from "@material-ui/icons/Search";
 import SearchBar from "./SearchBar";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
-
+import LoginDialog from '../user/Login'
 import {
   AppBar,
   Toolbar,
@@ -100,7 +101,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-const myDandaStyle = {
+const mystyle = {
   color: "black",
   fontSize: 30,
   fontFamily: "Arial",
@@ -108,6 +109,10 @@ const myDandaStyle = {
 
 const Navbar = () => {
   const classes = useStyles();
+  const [open, setOpen] = useState(false);
+  const openLoginDialog = () => {
+    setOpen(true);
+  }
   return (
     <>
       <div>
@@ -132,12 +137,12 @@ const Navbar = () => {
                 style={{ width: "15%" }}
                 inputProps={{ "aria-label": "search" }}
               />
-              <h1 style={myDandaStyle}>|</h1>
+              <h1 style={mystyle}>|</h1>
               <Divider orientation="vertical" flexItem />
               <SearchBar />
             </Box>
             <Box className={classes.subheader}>
-              <Button className={classes.login} color="inherit">
+              <Button className={classes.login} onClick={()=>openLoginDialog()} color="inherit">
                 Log in
               </Button>
               <Button className={classes.signup} color="inherit">
@@ -158,9 +163,11 @@ const Navbar = () => {
                 />
                 Cart
               </Button>
+              <LoginDialog open={open} setOpen={setOpen}/>
             </Box>
           </Toolbar>
         </AppBar>
+        
       </div>
     </>
   );
