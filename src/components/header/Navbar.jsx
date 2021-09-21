@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import {Link} from 'react-router-dom';
 import "./style.css";
 import logo from '../../images/logo.png'
 import cart from "../../images/cart.png";
@@ -118,12 +119,14 @@ const Navbar = () => {
       <div>
         <AppBar color="transparent" className={classes.navbar}>
           <Toolbar>
+            <Link to="/mainpage">
             <img
               src={logo}
               alt="logo"
               className={classes.logo}
               style={{ width: 100, marginTop: 0 }}
-            />
+              />
+            </Link>
             <Box boxShadow={2} className={classes.search}>
               <div className={classes.searchIcon}>
                 <LocationOnIcon />
