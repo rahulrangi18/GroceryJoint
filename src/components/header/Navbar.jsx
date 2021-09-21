@@ -2,6 +2,10 @@ import "./style.css";
 import logo from '../../images/logo.png'
 import cart from "../../images/cart.png";
 import Location from "./Location";
+import SearchIcon from "@material-ui/icons/Search";
+import SearchBar from "./SearchBar";
+import LocationOnIcon from "@material-ui/icons/LocationOn";
+
 import {
   AppBar,
   Toolbar,
@@ -13,14 +17,11 @@ import {
   Button,
   Divider,
 } from "@material-ui/core";
-import SearchIcon from "@material-ui/icons/Search";
-import SearchBar from "./SearchBar";
-import LocationOnIcon from "@material-ui/icons/LocationOn";
 
 const useStyles = makeStyles((theme) => ({
   navbar: {
-    background: "#44B749",
-    // display:"flex",
+    background: "#F28705",
+    display: "flex",
     paddingLeft: "10%",
     height: "65px",
   },
@@ -63,19 +64,19 @@ const useStyles = makeStyles((theme) => ({
   },
   login: {
     "& > *": {
-      marginRight: "auto",
+      marginRight: 15,
       alignItem: "center",
       color: "black",
       textDecoration: "none",
       textTransform: "none",
     },
     "&:hover": {
-      background: "#F28705",
+      background: "#44B749",
     },
   },
   signup: {
     "& > *": {
-      marginRight: "auto",
+      marginRight: 15,
       marginLeft: "auto",
       alignItem: "center",
       color: "black",
@@ -83,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
       textTransform: "none",
     },
     "&:hover": {
-      background: "#F28705",
+      background: "#44B749",
     },
   },
   cart: {
@@ -95,7 +96,7 @@ const useStyles = makeStyles((theme) => ({
       textTransform: "none",
     },
     "&:hover": {
-      background: "#F28705",
+      background: "#44B749",
     },
   },
 }));
@@ -108,86 +109,61 @@ const mystyle = {
 const Navbar = () => {
   const classes = useStyles();
   return (
-    // <Box className={classes.navbar} >
-    <AppBar color="transparent" className={classes.navbar}>
-      <Toolbar>
-        <img
-          src={logo}
-          alt="logo"
-          className={classes.logo}
-          style={{ width: 100, marginTop: 0 }}
-        />
-        <Box boxShadow={2} className={classes.search}>
-          <div className={classes.searchIcon}>
-            <LocationOnIcon />
-          </div>
-          <InputBase
-            placeholder="Location"
-            classes={{
-              root: classes.inputRoot,
-              input: classes.inputInput,
-            }}
-            style={{ width: "15%" }}
-            inputProps={{ "aria-label": "search" }}
-          />
-          <h1 style={mystyle}>|</h1>
-          <Divider orientation="vertical" flexItem />
-          <SearchBar />
-        </Box>
-        <Box className={classes.subheader}>
-          <Button className={classes.login} color="inherit">
-            Log in
-          </Button>
-          <Button className={classes.signup} color="inherit">
-            Sign up
-          </Button>
-
-          <Button className={classes.cart} color="inherit">
+    <>
+      <div>
+        <AppBar color="transparent" className={classes.navbar}>
+          <Toolbar>
             <img
-              src={cart}
-              alt="cart"
-              className={classes.cart}
-              style={{ width: 40,height:40, marginTop: 0,marginRight:1 }}
+              src={logo}
+              alt="logo"
+              className={classes.logo}
+              style={{ width: 100, marginTop: 0 }}
             />
-             Cart
-          </Button>
-        </Box>
-      </Toolbar>
-    </AppBar>
-    // </Box>
+            <Box boxShadow={2} className={classes.search}>
+              <div className={classes.searchIcon}>
+                <LocationOnIcon />
+              </div>
+              <InputBase
+                placeholder="Location"
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
+                style={{ width: "15%" }}
+                inputProps={{ "aria-label": "search" }}
+              />
+              <h1 style={mystyle}>|</h1>
+              <Divider orientation="vertical" flexItem />
+              <SearchBar />
+            </Box>
+            <Box className={classes.subheader}>
+              <Button className={classes.login} color="inherit">
+                Log in
+              </Button>
+              <Button className={classes.signup} color="inherit">
+                Sign up
+              </Button>
+
+              <Button className={classes.cart} color="inherit">
+                <img
+                  src={cart}
+                  alt="cart"
+                  className={classes.cart}
+                  style={{
+                    width: 40,
+                    height: 40,
+                    marginTop: 0,
+                    marginRight: 1,
+                  }}
+                />
+                Cart
+              </Button>
+            </Box>
+          </Toolbar>
+        </AppBar>
+        
+      </div>
+    </>
   );
 };
-
 export default Navbar;
-
-// <div className="main-nav" >
-// <nav className="navbar navbar-expand-lg navbar-light bg-light">
-//     <div className="container-fluid ">
-//         <div className="nav" >
-//             <a className="navbar-brand" href="#">GroceryJoint</a>
-//             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-//                 <span className="navbar-toggler-icon"></span>
-//             </button>
-//             <div className="collapse navbar-collapse" id="navbarSupportedContent">
-//                 <li class="dropdown">
-//                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-
-//                 </li>
-//                 <form className="d-flex">
-//                     {/* <Location/> */}
-//                     <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-//                     <button className="btn btn-outline-success" type="submit">Search</button>
-//                 </form>
-//                 <ul className="navbar-nav ml-auto mb-2 mb-lg-0">
-//                     <li className="nav-item">
-//                         <a className="nav-link active" aria-current="page" href="#">Log in</a>
-//                     </li>
-//                     <li className="nav-item">
-//                         <a className="nav-link active" aria-current="page" href="#">Sign Up</a>
-//                     </li>
-//                 </ul>
-//             </div>
-//         </div>
-//     </div>
-// </nav>
-// </div>

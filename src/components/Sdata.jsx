@@ -57,12 +57,12 @@ const Sdata = [
     sname: "1 L (pack of 3)",
     link: "https://www.amazon.in/Harpic-Powerplus-Original-1000-Pack/dp/B077MCF1YR/ref=sr_1_7?dchild=1&keywords=Harpic&qid=1632155004&smid=AT95IG9ONZD7S&sr=8-7",
   },
-  /* {
+  {
     id: 9,
     title: "Harpic Toilet Cleaner",
     imgsrc:"https://images-eu.ssl-images-amazon.com/images/I/51EgcM7MZtL._SX300_SY300_QL70_FMwebp_.jpg",
     sname: "1 L (pack of 3)",
     link: "https://www.amazon.in/Harpic-Powerplus-Original-1000-Pack/dp/B077MCF1YR/ref=sr_1_7?dchild=1&keywords=Harpic&qid=1632155004&smid=AT95IG9ONZD7S&sr=8-7",
-  }, */
+  }, 
 ];
 export default Sdata;
