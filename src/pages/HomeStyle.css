@@ -15,8 +15,7 @@ body {
   position: relative;
   width: 100vw;
   height: 400px;
-  margin-top: 100;
-  
+  margin-top: 100;  
   background-image: linear-gradient(
       to right,
       rgba(0, 0, 0, 0.4),

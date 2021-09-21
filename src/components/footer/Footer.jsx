@@ -3,10 +3,17 @@ import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles({
   main: {
-    position: "absolute",
+    marginTop: "1em",
+    paddingTop: "1em",
+    /*   position: "absolute", */
     bottom: 0,
     width: "100%",
+    backgroundColor: "#877a7a",
+    marginBottom: "-6.5em",
   },
+  a : {
+  color: "black",
+},
 });
 const FooterPagePro = () => {
   const classes = useStyles();
@@ -31,20 +38,38 @@ const FooterPagePro = () => {
                 For Restaurants
               </h6>
               <p>
-                <a href="https://www.zomato.com/partner_with_us">
+                <a
+                  href="https://www.zomato.com/partner_with_us"
+                  className={classes.a}
+                  target="_blank"
+                >
                   Add Restaurants
                 </a>
               </p>
               <p>
-                <a href="https://www.zomato.com/business/apps">Business App</a>
+                <a
+                  href="https://www.zomato.com/business/apps"
+                  target="_blank"
+                  className={classes.a}
+                >
+                  Business App
+                </a>
               </p>
               <p>
-                <a href="https://www.zomato.com/business/widgets">
+                <a
+                  href="https://www.zomato.com/business/widgets"
+                  target="_blank"
+                  className={classes.a}
+                >
                   Restaurants Widgets
                 </a>
               </p>
               <p>
-                <a href="https://www.zomato.com/business/apps">
+                <a
+                  href="https://www.zomato.com/business/apps"
+                  target="_blank"
+                  className={classes.a}
+                >
                   Products for Business
                 </a>
               </p>
@@ -55,16 +80,24 @@ const FooterPagePro = () => {
                 Useful links
               </h6>
               <p>
-                <a href="#!">Your Account</a>
+                <a href="#!" className={classes.a}>
+                  Your Account
+                </a>
               </p>
               <p>
-                <a href="#!">Recent Orders</a>
+                <a href="#!" className={classes.a}>
+                  Recent Orders
+                </a>
               </p>
               <p>
-                <a href="#!">Offers</a>
+                <a href="#!" className={classes.a}>
+                  Offers
+                </a>
               </p>
               <p>
-                <a href="#!">Help</a>
+                <a href="#!" className={classes.a}>
+                  Help
+                </a>
               </p>
             </MDBCol>
             <hr className="w-100 clearfix d-md-none" />
@@ -89,35 +122,15 @@ const FooterPagePro = () => {
           <MDBRow className="d-flex align-items-center">
             <MDBCol md="8" lg="8">
               <p className="text-center text-md-left grey-text">
-                &copy; {new Date().getFullYear()} Copyright:{" "}
-                <a href="https://www.iiitsurat.ac.in"> GroceryJoint </a>
+                &copy; {new Date().getFullYear()} Copyright:
+                <a
+                  href="http://iiitsurat.ac.in/"
+                  target="_blank"
+                  className={classes.a}
+                >
+                  GroceryJoint
+                </a>
               </p>
-            </MDBCol>
-            <MDBCol md="4" lg="4" className="ml-lg-0">
-              <div className="text-center text-md-right">
-                <ul className="list-unstyled list-inline">
-                  <li className="list-inline-item">
-                    <a className="btn-floating btn-sm rgba-white-slight mx-1">
-                      <i className="fab fa-facebook-f" />
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a className="btn-floating btn-sm rgba-white-slight mx-1">
-                      <i className="fab fa-twitter" />
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a className="btn-floating btn-sm rgba-white-slight mx-1">
-                      <i className="fab fa-google-plus" />
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a className="btn-floating btn-sm rgba-white-slight mx-1">
-                      <i className="fab fa-linkedin-in" />
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </MDBCol>
           </MDBRow>
         </MDBContainer>

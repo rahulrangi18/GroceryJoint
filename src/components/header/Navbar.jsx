@@ -1,5 +1,5 @@
 import "./style.css";
-import logo from '../../images/logo.png'
+import logo from "../../images/logo.png";
 import cart from "../../images/cart.png";
 import Location from "./Location";
 import SearchIcon from "@material-ui/icons/Search";
@@ -100,7 +100,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-const mystyle = {
+const myDandaStyle = {
   color: "black",
   fontSize: 30,
   fontFamily: "Arial",
@@ -132,7 +132,7 @@ const Navbar = () => {
                 style={{ width: "15%" }}
                 inputProps={{ "aria-label": "search" }}
               />
-              <h1 style={mystyle}>|</h1>
+              <h1 style={myDandaStyle}>|</h1>
               <Divider orientation="vertical" flexItem />
               <SearchBar />
             </Box>
@@ -161,7 +161,6 @@ const Navbar = () => {
             </Box>
           </Toolbar>
         </AppBar>
-        
       </div>
     </>
   );

@@ -6,20 +6,9 @@ import FooterPagePro from "../footer/Footer";
 const useStyles = makeStyles({
   main: {
     background: "#000",
-    
+
   },
 });
-// const ncard = (val) => {
-//   return (
-//     <Card
-//       key={val.id}
-//       title={val.title}
-//       imgsrc={val.imgsrc}
-//       sname={val.sname}
-//       link={val.link}
-//     />
-//   );
-// };
 const Products = () => {
   const classes = useStyles();
   return (

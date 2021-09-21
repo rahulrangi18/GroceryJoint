@@ -1,17 +1,16 @@
 import React from "react";
 import "../components/Cards.css";
-import Footer from "../components/footer/Footer";
 import Products from "../components/header/Products";
-import Navbar from "../components/header/Navbar";
-
-function MainPage() {
+const MainPage= () => {
   return (
     <>
-      {/* <Navbar /> */}
-      <Products />
-      <Footer />
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <div>
+          <Products />
+        </div>
+      </div>
     </>
   );
-}
+};
 
 export default MainPage;

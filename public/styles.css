@@ -12,7 +12,6 @@ body {
  
 }
 .mainContainer {
- min-height: auto; /* will cover the 100% of viewport */
  overflow: hidden;
  display: block;
  position: relative;
