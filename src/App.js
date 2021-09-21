@@ -1,16 +1,22 @@
-import React from "react";
+import React,{useState} from "react";
+import './App.css';
 import "../src/components/Cards.css";
-import Footer from "../src/components/footer/Footer";
+// import {Sdata} from "./components/Sdata";
+import FooterPagePro from "../src/components/footer/Footer";
 import Products from "../src/components/header/Products";
 import Navbar from "./components/header/Navbar";
 
 function App() {
+  // const [cartItem, setCartItem] = useState(Sdate)
   return (
-    <>
+    <div className="app">
         <Navbar />
-        <Products />
-        <Footer />
-    </>
+        <Products  />
+        <div className="footer">
+          {/* <FooterPagePro /> */}
+
+        </div>
+    </div>
   );
 }
 

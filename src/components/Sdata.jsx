@@ -1,4 +1,4 @@
-const Sdata = [
+export const Sdata = [
   {
     id: 1,
     title: "Amul Milk",
@@ -56,4 +56,4 @@ const Sdata = [
     link: "https://www.amazon.in/Harpic-Powerplus-Original-1000-Pack/dp/B077MCF1YR/ref=sr_1_7?dchild=1&keywords=Harpic&qid=1632155004&smid=AT95IG9ONZD7S&sr=8-7",
   },
 ];
-export default Sdata;
+ 

@@ -19,11 +19,12 @@ import LocationOnIcon from "@material-ui/icons/LocationOn";
 
 const useStyles = makeStyles((theme) => ({
   logo: {
-    width: "100",
+    width: 70,
+    // height:12,
     marginTop: -7,
   },
   navbar: {
-    background: "#51A66F",
+    background: "#f28705",
     // display:"flex",
     paddingLeft: "10%",
   },
@@ -65,14 +66,15 @@ const useStyles = makeStyles((theme) => ({
     // width: '100%',
   },
   subheader: {
-    margin: "0 15% 0 auto",
+    margin: "0 20% 0 auto",
     display: "flex",
   },
   login: {
     "& > *": {
-      marginRight: "auto",
+      // marginRight: "auto",
       alignItem: "center",
       color: "black",
+      marginRight:15,
       textDecoration: "none",
       textTransform: "none",
     },
@@ -82,7 +84,8 @@ const useStyles = makeStyles((theme) => ({
   },
   signup: {
     "& > *": {
-      marginRight: "auto",
+      // marginRight: "auto",
+      marginRight:15,
       marginLeft: "auto",
       alignItem: "center",
       color: "black",
@@ -122,7 +125,7 @@ const Navbar = () => {
           src={logo}
           alt="logo"
           className={classes.logo}
-          style={{ width: 100, marginTop: 0 }}
+          // style={{ width: 100, marginTop: 0 }}
         />
         <Box boxShadow={2} className={classes.search}>
           <div className={classes.searchIcon}>
