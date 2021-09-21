@@ -1,7 +1,15 @@
+import React,{useState} from "react";
 import "./style.css";
 import logo from '../../images/logo.png'
 import cart from "../../images/cart.png";
 import Location from "./Location";
+<<<<<<< Updated upstream
+=======
+import SearchIcon from "@material-ui/icons/Search";
+import SearchBar from "./SearchBar";
+import LocationOnIcon from "@material-ui/icons/LocationOn";
+import LoginDialog from '../user/Login'
+>>>>>>> Stashed changes
 import {
   AppBar,
   Toolbar,
@@ -117,6 +125,10 @@ const mystyle = {
 
 const Navbar = () => {
   const classes = useStyles();
+  const [open, setOpen] = useState(false);
+  const openLoginDialog = () => {
+    setOpen(true);
+  }
   return (
     // <Box className={classes.navbar} >
     <AppBar color="transparent" className={classes.navbar}>
@@ -159,12 +171,61 @@ const Navbar = () => {
               className={classes.cart}
               style={{ width: 40,height:40, marginTop: 0,marginRight:1 }}
             />
+<<<<<<< Updated upstream
              Cart
           </Button>
         </Box>
       </Toolbar>
     </AppBar>
     // </Box>
+=======
+            <Box boxShadow={2} className={classes.search}>
+              <div className={classes.searchIcon}>
+                <LocationOnIcon />
+              </div>
+              <InputBase
+                placeholder="Location"
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
+                style={{ width: "15%" }}
+                inputProps={{ "aria-label": "search" }}
+              />
+              <h1 style={mystyle}>|</h1>
+              <Divider orientation="vertical" flexItem />
+              <SearchBar />
+            </Box>
+            <Box className={classes.subheader}>
+              <Button className={classes.login} onClick={()=>openLoginDialog()} color="inherit">
+                Log in
+              </Button>
+              <Button className={classes.signup} color="inherit">
+                Sign up
+              </Button>
+
+              <Button className={classes.cart} color="inherit">
+                <img
+                  src={cart}
+                  alt="cart"
+                  className={classes.cart}
+                  style={{
+                    width: 40,
+                    height: 40,
+                    marginTop: 0,
+                    marginRight: 1,
+                  }}
+                />
+                Cart
+              </Button>
+              <LoginDialog open={open} setOpen={setOpen}/>
+            </Box>
+          </Toolbar>
+        </AppBar>
+        
+      </div>
+    </>
+>>>>>>> Stashed changes
   );
 };
 
