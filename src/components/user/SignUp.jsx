@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-// import {Link} from 'react-router-dom';
-import { Dialog, DialogContent, makeStyles, Box, Typography, TextField, Button, InputBase, InputAdornment, Divider } from '@material-ui/core';
 import {Link} from 'react-router-dom'
+import { Dialog, DialogContent, makeStyles, Box, Typography, TextField, Button, InputBase, InputAdornment, Divider } from '@material-ui/core';
 // import InputAdornment from '@mui/material/InputAdornment';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import EmailIcon from '@mui/icons-material/Email';
@@ -79,9 +78,10 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-export default function Login({ open, setOpen, toggleLogAccount }) {
+export default function SignUp({ open, setOpen, toggleSignAccount }) {
     const classes = useStyles();
     const [login, setLogin] = useState('');
+    // {console.log("signup page")}
     const handleClose = () => {
         setOpen(false);
     }
@@ -94,15 +94,16 @@ export default function Login({ open, setOpen, toggleLogAccount }) {
             <DialogContent className={classes.component} >
                 <Box className={classes.login}>
                     <Box className={classes.logHeader} >
-                    <Typography style={{ fontSize: "25px"}} >Login</Typography>
+                        <Typography style={{ fontSize: "25px"}} >SignUp</Typography>
                         <ClearIcon className={classes.clearIcon} />
                     </Box>
                     {/* <TextField onChange={(e) => onValueChange(e)} name='phone' label='Phone number' InputProps={{
                         startAdornment: <InputAdornment position="start">kg</InputAdornment>,
                     }} /> */}
-                    <Box sx={{ display: 'flex', alignItems: 'flex-end', marginTop:"10px" }}>
-                        <LocalPhoneIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-                        <TextField id="input-with-sx" label="Phone number" variant="standard" style={{width: '100%',}}/>
+                    <Box sx={{ display: 'flex', alignItems: 'flex-end', marginTop:"10px",flexDirection: 'column'}}>
+                        {/* <LocalPhoneIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} /> */}
+                        <TextField id="input-with-sx" label="Full Name" variant="standard" style={{width: '100%',}}/>
+                        <TextField id="input-with-sx" label="Email" variant="standard" style={{width: '100%',marginTop: "20px"}}/>
                     </Box>
                     {/* <Box boxShadow={2} className={classes.search}>
                         <div className={classes.searchIcon}>
@@ -122,13 +123,13 @@ export default function Login({ open, setOpen, toggleLogAccount }) {
                         <SearchBar />
                     </Box> */}
                     {/* <TextField onChange={(e) => onValueChange(e)} name='password' label='Enter Password' /> */}
-                    <Button className={classes.btnSend}  variant='contained' color="primary" >Send Otp</Button>
+                    <Button className={classes.btnSend}  variant='contained' color="primary" >Create Account</Button>
                     {/* <Divider>OR</Divider> */}
                     <Typography style={{ textAlign: 'center', marginTop: "20px"}} >or</Typography>
-                    <Button className={classes.btnEmail}variant='contained' color="primary" startIcon={<EmailIcon/>} >Continue with Email</Button>
+                    {/* <Button className={classes.btnEmail}variant='contained' color="primary" startIcon={<EmailIcon/>} >Continue with Email</Button> */}
                     <Button className={classes.btnEmail} variant='contained' color="primary" startIcon={<GoogleIcon/>} >Continue with Google</Button>
                     <Divider style={{borderTop: "1px solid #000", marginTop: "20px"}} />
-                    <Typography className={classes.createAccount} onClick={()=>toggleLogAccount()} >New To GroceryJoint?<span style={{color:"red"}} >Create Account</span></Typography>
+                    <Typography className={classes.createAccount} onClick={()=>toggleSignAccount()}  >Already Have an account? <span style={{color:"red"}} > Log in</span></Typography>
                 </Box>
             </DialogContent>
         </Dialog>

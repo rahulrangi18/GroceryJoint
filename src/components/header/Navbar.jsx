@@ -8,6 +8,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import SearchBar from "./SearchBar";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import LoginDialog from '../user/Login'
+import SignUpDialog from '../user/SignUp';
 import {
   AppBar,
   Toolbar,
@@ -111,13 +112,31 @@ const mystyle = {
 const Navbar = () => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
+  const [open1, setOpen1] = useState(false);
+  const [account, setAccount] = useState(false);
   const openLoginDialog = () => {
     setOpen(true);
+    setOpen1(false);
+  }
+
+  const toggleLogAccount = () => {
+    setOpen1(true);
+    setOpen(false);
+  }
+  const toggleSignAccount = () => {
+    setOpen(true);
+    setOpen1(false);
+  }
+
+  const openSignUpDialog = () => {
+    setOpen1(true);
+    setOpen(false);
+    // console.log("btn clicked")
   }
   return (
     <>
       <div>
-        <AppBar color="transparent" className={classes.navbar}>
+        <AppBar position='fixed' color="transparent" className={classes.navbar}>
           <Toolbar>
             <Link to="/mainpage">
             <img
@@ -148,7 +167,7 @@ const Navbar = () => {
               <Button className={classes.login} onClick={()=>openLoginDialog()} color="inherit">
                 Log in
               </Button>
-              <Button className={classes.signup} color="inherit">
+              <Button className={classes.signup} onClick={()=>openSignUpDialog()} color="inherit">
                 Sign up
               </Button>
 
@@ -166,7 +185,8 @@ const Navbar = () => {
                 />
                 Cart
               </Button>
-              <LoginDialog open={open} setOpen={setOpen}/>
+              <LoginDialog open={open} setOpen={setOpen} toggleLogAccount={toggleLogAccount} />
+              <SignUpDialog open={open1} setOpen={setOpen1} toggleSignAccount={toggleSignAccount} />
             </Box>
           </Toolbar>
         </AppBar>
