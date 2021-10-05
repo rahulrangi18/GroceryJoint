@@ -10,7 +10,7 @@ const db = () => {
     .then(() => {
         console.log('mongo connection open!')
     }).catch(err => {
-        console.log('OH NO Mongo connection error!!')
+        console.log('Ohh No Mongo connection error!!')
         console.log(err);
     })
     
