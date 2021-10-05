@@ -4,10 +4,11 @@ import MainPage from "./pages/MainPage";
 import HomePage from "./pages/HomePage";
 import Navbar from "./components/header/Navbar";
 import Footer from "./components/footer/Footer";
+import ContextProvider from "./context/ContextProvider";
 /* import './components/header/style.css' */
 const App = () => {
   return (
-    <>
+    <ContextProvider>
       <div className="mainContainer">
         <Navbar />
         <Switch>
@@ -18,7 +19,7 @@ const App = () => {
           <Footer />
         </div>
       </div>
-    </>
+    </ContextProvider>
   );
 };
 export default App;

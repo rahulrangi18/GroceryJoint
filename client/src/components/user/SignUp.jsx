@@ -10,8 +10,8 @@ import {authenticateSignup} from '../../service/api'
 
 const useStyles = makeStyles((theme) => ({
     component: {
-        height: "68vh",
-        width: "60vh",
+        height: "82vh",
+        width: "65vh",
     },
     login: {
         padding: "15px 25px",

@@ -9,6 +9,8 @@ import SearchBar from "./SearchBar";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import LoginDialog from '../user/Login'
 import SignUpDialog from '../user/SignUp';
+import {LoginContext} from '../../context/ContextProvider';
+import Profile from '../user/Profile';
 import {
   AppBar,
   Toolbar,
@@ -113,7 +115,7 @@ const Navbar = () => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [open1, setOpen1] = useState(false);
-  const [account, setAccount] = useState(false);
+  const [account, setAccount] = useState('');
   const openLoginDialog = () => {
     setOpen(true);
     setOpen1(false);
@@ -132,6 +134,9 @@ const Navbar = () => {
     setOpen1(true);
     setOpen(false);
     // console.log("btn clicked")
+  }
+  const logout = () => {
+    setAccount('')
   }
   return (
     <>
@@ -164,12 +169,19 @@ const Navbar = () => {
               <SearchBar />
             </Box>
             <Box className={classes.subheader}>
+              {
+                // console.log(account)
+                account ? <Profile account={account} setAccount={setAccount}/>:
               <Button className={classes.login} onClick={()=>openLoginDialog()} color="inherit">
                 Log in
               </Button>
+              }
+              {
+                account ? <Button onClick={()=>logout()} >LogOut</Button>:
               <Button className={classes.signup} onClick={()=>openSignUpDialog()} color="inherit">
                 Sign up
               </Button>
+              }
 
               <Button className={classes.cart} color="inherit">
                 <img
@@ -185,7 +197,7 @@ const Navbar = () => {
                 />
                 Cart
               </Button>
-              <LoginDialog open={open} setOpen={setOpen} toggleLogAccount={toggleLogAccount} />
+              <LoginDialog open={open} setOpen={setOpen} toggleLogAccount={toggleLogAccount} setAccount={setAccount} />
               <SignUpDialog open={open1} setOpen={setOpen1} toggleSignAccount={toggleSignAccount} />
             </Box>
           </Toolbar>

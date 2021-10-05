@@ -7,10 +7,12 @@ import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import EmailIcon from '@mui/icons-material/Email';
 import GoogleIcon from '@mui/icons-material/Google';
 import ClearIcon from '@mui/icons-material/Clear';
+import {authenticateLogin} from '../../service/api';
+
 const useStyles = makeStyles((theme) => ({
     component: {
-        height: "68vh",
-        width: "60vh",
+        height: "80vh",
+        width: "64vh",
     },
     login: {
         padding: "15px 25px",
@@ -78,17 +80,39 @@ const useStyles = makeStyles((theme) => ({
         textDecoration:"none",
         color:"black",
     },
+    error:{
+        fontSize:10,
+        color:"#ff6161",
+        marginTop:0,
+    },
 }))
-
-export default function Login({ open, setOpen, toggleLogAccount }) {
+const loginInitialValues = {
+    email:'',
+    password:'',
+    fullname:''
+}
+export default function Login({ open, setOpen, toggleLogAccount, setAccount }) {
     const classes = useStyles();
-    const [login, setLogin] = useState('');
+    const [login, setLogin] = useState(loginInitialValues);
+    const [error, setError] = useState(false);
+    useEffect(()=>{
+        setError(false);
+    },[login])
     const handleClose = () => {
         setOpen(false);
     }
     const onValueChange = (e) => {
         setLogin({ ...login, [e.target.name]: e.target.value });
-        console.log(login);
+        // console.log(login);
+    }
+    const loginUser = async() => {
+        const response = await authenticateLogin(login);
+        if(!response) return setError(true);
+        else{
+            setError(false);
+            handleClose();
+            setAccount(login.email)
+        }
     }
     return (
         <Dialog open={open} onClose={handleClose}>
@@ -101,9 +125,11 @@ export default function Login({ open, setOpen, toggleLogAccount }) {
                     {/* <TextField onChange={(e) => onValueChange(e)} name='phone' label='Phone number' InputProps={{
                         startAdornment: <InputAdornment position="start">kg</InputAdornment>,
                     }} /> */}
-                    <Box sx={{ display: 'flex', alignItems: 'flex-end', marginTop:"10px" }}>
-                        <LocalPhoneIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-                        <TextField id="input-with-sx" label="Phone number" variant="standard" style={{width: '100%',}}/>
+                    <Box sx={{ display: 'flex', alignItems: 'flex-end', marginTop:"10px",flexDirection:"column" }}>
+                        {/* <LocalPhoneIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} /> */}
+                        <TextField onChange={(e)=>onValueChange(e)} id="input-with-sx" name='email' label="Email" variant="standard" style={{width: '100%',marginTop: "20px"}}/>
+                        <TextField onChange={(e)=>onValueChange(e)} id="input-with-sx" name='password' label="Password" variant="standard" style={{width: '100%',marginTop: "20px"}}/>
+                        {error && <Typography className={classes.error} >Invalid username or password</Typography>}
                     </Box>
                     {/* <Box boxShadow={2} className={classes.search}>
                         <div className={classes.searchIcon}>
@@ -123,7 +149,7 @@ export default function Login({ open, setOpen, toggleLogAccount }) {
                         <SearchBar />
                     </Box> */}
                     {/* <TextField onChange={(e) => onValueChange(e)} name='password' label='Enter Password' /> */}
-                    <Button className={classes.btnSend}  variant='contained' color="primary" >Send Otp</Button>
+                    <Button className={classes.btnSend}  variant='contained' color="primary" onClick={()=>loginUser()} >Log In</Button>
                     {/* <Divider>OR</Divider> */}
                     <Typography style={{ textAlign: 'center', marginTop: "20px"}} >or</Typography>
                     <Button className={classes.btnEmail}variant='contained' color="primary" startIcon={<EmailIcon/>} >Continue with Email</Button>
