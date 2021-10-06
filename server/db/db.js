@@ -1,10 +1,11 @@
 import mongoose from 'mongoose';
-
+import dotenv from 'dotenv';
+dotenv.config({path:'./config.env'});
 
 const db = () => {
 
     
-    const URL = "mongodb+srv://groceryjoint:GroceryJoint@groceryjoint.sjaqc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    const URL = process.env.DB;
     
     mongoose.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {

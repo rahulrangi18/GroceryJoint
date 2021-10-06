@@ -1,6 +1,7 @@
 import express from 'express';
 import User from '../model/userSchema.js';
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 export const userSignup = async (request, response) => {
     try {
         const exist = await User.findOne({ email: request.body.email});
@@ -34,6 +35,8 @@ export const userLogin = async (req, res) => {
         console.log(user); 
         if(user){
             const isMatch=await bcrypt.compare(req.body.password,user.password);
+            const token=await user.generateAuthToken();
+            console.log(token);
             if(isMatch)
              {
                 return res.status(200).json(`${user.fullname} has login successfully`);

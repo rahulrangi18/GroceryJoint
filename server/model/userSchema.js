@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
+import express from "express";
 import bcrypt from "bcryptjs";
-
+import jwt from "jsonwebtoken";
 const userSchema = new mongoose.Schema({
     fullname:{
         type: 'string',
@@ -26,7 +27,15 @@ const userSchema = new mongoose.Schema({
     },
     phone:{
         type:Number,
-    }
+    },
+    tokens:[
+        {
+            token:{
+                 type: String,
+                 required:true
+            }
+        }
+    ]
 })
 //Password Hashing
 userSchema.pre('save',async function (next) {
@@ -41,7 +50,19 @@ userSchema.pre('save',async function (next) {
           next(error)
       }
 })
-
+//token generation
+userSchema.methods.generateAuthToken = async function(){
+    try{
+         let token=jwt.sign({_id:this._id},process.env.SECRET_KEY);
+         this.tokens=this.tokens.concat({token:token});
+         await this.save();
+         return token;
+    }
+    catch(err)
+       {
+           console.log(err);
+       }
+}
 const User=mongoose.model('user',userSchema);
 
 export default User;
