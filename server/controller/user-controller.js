@@ -2,7 +2,9 @@ import express from 'express';
 import User from '../model/userSchema.js';
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+const saltRounds = 12;
 export const userSignup = async (request, response) => {
+    const { fullname, phone, email, password } = request.body;
     try {
         const exist = await User.findOne({ email: request.body.email});
         // console.log(exist);
@@ -13,8 +15,9 @@ export const userSignup = async (request, response) => {
             console.log({'message':' User already exist'});
             return response.status(401 ).json({ 'message': 'User already exist'});
         }
+        const hash = bcrypt.hashSync(password, saltRounds);
         const user = request.body;
-        const newUser = new User(user);
+        const newUser = new User({fullname, phone, email, password:hash});
         //password hashing
         console.log(newUser);
         await newUser.save();
@@ -31,10 +34,10 @@ export const userSignup = async (request, response) => {
 export const userLogin = async (req, res) => {
     try {
         const {email,password}=req.body;
-        const user = await User.findOne({ email: req.body.email});
+        const user = await User.findOne({ email: email});
         console.log(user); 
         if(user){
-            const isMatch=await bcrypt.compare(req.body.password,user.password);
+            const isMatch= bcrypt.compareSync(password,user.password);
             const token=await user.generateAuthToken();
             console.log(token);
             if(isMatch)
