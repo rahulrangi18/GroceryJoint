@@ -1,6 +1,6 @@
 import express from 'express';
 import User from '../model/userSchema.js';
-
+import bcrypt from "bcryptjs";
 export const userSignup = async (request, response) => {
     try {
         const exist = await User.findOne({ email: request.body.email});
@@ -14,6 +14,7 @@ export const userSignup = async (request, response) => {
         }
         const user = request.body;
         const newUser = new User(user);
+        //password hashing
         console.log(newUser);
         await newUser.save();
         response.status(200).json(`${user.fullname} has been successfully registered`);
@@ -28,10 +29,18 @@ export const userSignup = async (request, response) => {
 
 export const userLogin = async (req, res) => {
     try {
-        const user = await User.findOne({ email: req.body.email,password: req.body.password});
+        const {email,password}=req.body;
+        const user = await User.findOne({ email: req.body.email});
         console.log(user); 
         if(user){
-            return res.status(200).json(`${user.fullname} has login successfully`)
+            const isMatch=await bcrypt.compare(req.body.password,user.password);
+            if(isMatch)
+             {
+                return res.status(200).json(`${user.fullname} has login successfully`);
+             }
+            else{
+                return res.status(400).json({error:"Invalid Details"});
+            }
         } else {
             return res.status(401).json('Invalid Login');
         }
