@@ -17,9 +17,7 @@ export const userSignup = async (request, response) => {
     //password hashing
     console.log(newUser);
     await newUser.save();
-    response
-      .status(200)
-      .json(`${user.fullname} has been successfully registered`);
+    response.status(200).json(`${user.fullname} has been successfully registered`);
     console.log(`${user.fullname} has been successfully registered`);
   } catch (error) {
     // response.send('Error: ', error.message);
@@ -34,8 +32,8 @@ export const userLogin = async (req, res) => {
     console.log(user);
     if (user) {
       const isMatch = await bcrypt.compare(req.body.password, user.password);
-      const token = await user.generateAuthToken();
-      console.log(token);
+     /*  const token = await user.createToken();
+      console.log(token); */
       if (isMatch) {
         return res.status(200).json(`${user.fullname} has login successfully`);
       } else {

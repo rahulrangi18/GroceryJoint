@@ -26,15 +26,15 @@ const userSchema = new mongoose.Schema({
   },
   phone: {
     type: Number,
-  },
-  tokens: [
+  }
+  /* tokens: [
     {
       token: {
         type: String,
         required: true,
       },
     },
-  ],
+  ] */
 });
 //Password Hashing
 userSchema.pre("save", async function (next) {
@@ -47,7 +47,7 @@ userSchema.pre("save", async function (next) {
     next(error);
   }
 });
-//token generation
+/* //token generation
 userSchema.methods.generateAuthToken = async function () {
   try {
     let token = jwt.sign({ _id: this._id }, process.env.SECRET_KEY);
@@ -57,7 +57,7 @@ userSchema.methods.generateAuthToken = async function () {
   } catch (err) {
     console.log(err);
   }
-};
+}; */
 const User = mongoose.model("user", userSchema);
 
 export default User;
