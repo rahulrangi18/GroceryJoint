@@ -98,7 +98,7 @@ const useStyles = makeStyles((theme) => ({
     "& > *": {
       marginRight: "auto",
       alignItem: "center",
-      color: "black",
+      color: "#fff",
       textDecoration: "none",
       textTransform: "none",
     },
