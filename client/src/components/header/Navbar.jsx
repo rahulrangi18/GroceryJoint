@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import {Link} from 'react-router-dom';
+import {Link,NavLink} from 'react-router-dom';
 import "./style.css";
 import logo from '../../images/logo.png'
 import cart from "../../images/cart.png";
@@ -11,6 +11,8 @@ import LoginDialog from '../user/Login'
 import SignUpDialog from '../user/SignUp';
 import {LoginContext} from '../../context/ContextProvider';
 import Profile from '../user/Profile';
+import Badge from '../card-UI/Badge';
+import CartDetails from '../card-UI/CartDetails'
 import {
   AppBar,
   Toolbar,
@@ -25,7 +27,7 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   navbar: {
-    background: "#F28705",
+    background: "#26a541",
     display: "flex",
     paddingLeft: "10%",
     height: "65px",
@@ -71,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
     "& > *": {
       marginRight: 15,
       alignItem: "center",
-      color: "black",
+      color: "#fff",
       textDecoration: "none",
       textTransform: "none",
     },
@@ -84,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
       marginRight: 15,
       marginLeft: "auto",
       alignItem: "center",
-      color: "black",
+      color: "#fff",
       textDecoration: "none",
       textTransform: "none",
     },
@@ -111,10 +113,11 @@ const mystyle = {
   fontFamily: "Arial",
 };
 
-const Navbar = () => {
+const Navbar = ({count}) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [open1, setOpen1] = useState(false);
+  const [open2, setOpen2] = useState(false);
   const [account, setAccount] = useState('');
   const openLoginDialog = () => {
     setOpen(true);
@@ -138,6 +141,12 @@ const Navbar = () => {
   const logout = () => {
     setAccount('')
   }
+
+  const openCartDialog = () => {
+    // setOpen(true);
+    setOpen2(true);
+  }
+
   return (
     <>
       <div>
@@ -183,7 +192,7 @@ const Navbar = () => {
               </Button>
               }
 
-              <Button className={classes.cart} color="inherit">
+              {/* <Button className={classes.cart} color="inherit">
                 <img
                   src={cart}
                   alt="cart"
@@ -196,9 +205,16 @@ const Navbar = () => {
                   }}
                 />
                 Cart
+              </Button> */}
+              {/* <NavLink onClick={()=>openCartDialog()}>
+              <Badge count={count}   />
+              </NavLink> */}
+              <Button  onClick={()=>openCartDialog()} >
+                <Badge count={count}/>
               </Button>
               <LoginDialog open={open} setOpen={setOpen} toggleLogAccount={toggleLogAccount} setAccount={setAccount} />
               <SignUpDialog open={open1} setOpen={setOpen1} toggleSignAccount={toggleSignAccount} />
+              <CartDetails  open={open2} setOpen={setOpen2} />
             </Box>
           </Toolbar>
         </AppBar>

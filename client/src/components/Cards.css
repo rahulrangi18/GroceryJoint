@@ -32,16 +32,18 @@
     font-family: "Raleway",sans-serif;
     text-transform: uppercase;
     font-size: 13px;
+    font-weight: 700;
     letter-spacing: 2px;
-    font-weight: 500;
-    color:#868686;
+    color:#000000;
     background-color: #fff;
 }
 .card_title{
     margin-top: 5px;
+    font-size: 15px;
     margin-bottom: 10px;
     font-family: "Raleway",sans-serif;
     text-transform: capitalize;
+    color:#afafaf;
     background-color: #fff;
 }
 .button{
@@ -56,6 +58,7 @@
     outline: none;
     border: 1px solid black;
     cursor: pointer;
+    margin-left: 50px;
 }
 @media (max-width:768px)
 {

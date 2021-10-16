@@ -1,10 +1,13 @@
 import React from "react";
 import "../pages/HomeStyle.css";
-import SearchBox from "../components/header/SearchBox"
+import SearchBox from "../components/header/SearchBox";
+import Footer from "../components/footer/Footer";
+import Navbar from '../components/header/Navbar';
 const HomePage = () => {
   return (
     <>
       <div className="HomePage">
+        <Navbar/>
         <div className="startingImg">
           <div className="mainHeading">
             <p style={{ fontSize: "68px" }}>GroceryJoint</p>
@@ -13,6 +16,9 @@ const HomePage = () => {
               <SearchBox />
             </div>
           </div>
+        </div>
+        <div style={{ width: "100%" }}>
+          <Footer />
         </div>
       </div>
     </>
