@@ -1,6 +1,10 @@
-import express from "express";
+import express, { response } from "express";
 import User from "../model/userSchema.js";
 import bcrypt from "bcryptjs";
+import {OAuth2Client} from 'google-auth-library'
+
+const client=new OAuth2Client("548736927785-l1s640me1mmgc2it65d583kbrb16ueg2.apps.googleusercontent.com");
+
 export const userSignup = async (request, response) => {
   try {
     const exist = await User.findOne({ email: request.body.email });
@@ -45,4 +49,44 @@ export const userLogin = async (req, res) => {
   } catch (error) {
     console.log(error.message);
   }
+};
+
+export const googlelogin = async (req, res) => {
+  const { tokenId } = req.body;
+  client
+    .verifyIdToken({
+      idToken: tokenId,
+      audience:
+        "548736927785-l1s640me1mmgc2it65d583kbrb16ueg2.apps.googleusercontent.com",
+    })
+    .then((response) => {
+      const { email_verified, name, email } = response.playload;
+      //console.log(response.playload);
+      if(email_verified){
+        user.findOne({email}).exec((err,user)=>{
+              if(err){
+                 return res
+                   .status(401)
+                   .json({ error: "Something went wrong..." })
+              }
+             else{
+               if(user){
+                     console.log({ message: " User already exist" });
+                     return response
+                       .status(401)
+                       .json({ message: "User already exist" });
+                }
+               else{
+                  let newUser;
+                  let password="google_ka_password";
+                  newUser.save((err,user)=>{return response
+                    .status(401)
+                    .json({ message: "User already exist" });
+                   })
+               }
+             }
+        })
+      }
+    });
+  console.log();
 };

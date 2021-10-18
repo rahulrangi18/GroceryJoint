@@ -24,6 +24,7 @@ import {
   Button,
   Divider,
 } from "@material-ui/core";
+import { color } from "@mui/system";
 
 const useStyles = makeStyles((theme) => ({
   navbar: {
@@ -150,14 +151,14 @@ const Navbar = ({count}) => {
   return (
     <>
       <div>
-        <AppBar position='fixed' color="transparent" className={classes.navbar}>
+        <AppBar position="fixed" color="transparent" className={classes.navbar}>
           <Toolbar>
             <Link to="/mainpage">
-            <img
-              src={logo}
-              alt="logo"
-              className={classes.logo}
-              style={{ width: 100, marginTop: 0 }}
+              <img
+                src={logo}
+                alt="logo"
+                className={classes.logo}
+                style={{ width: 100, marginTop: 0 }}
               />
             </Link>
             <Box boxShadow={2} className={classes.search}>
@@ -180,17 +181,29 @@ const Navbar = ({count}) => {
             <Box className={classes.subheader}>
               {
                 // console.log(account)
-                account ? <Profile account={account} setAccount={setAccount}/>:
-              <Button className={classes.login} onClick={()=>openLoginDialog()} color="inherit">
-                Log in
-              </Button>
+                account ? (
+                  <Profile account={account} setAccount={setAccount} />
+                ) : (
+                  <Button
+                    className={classes.login}
+                    onClick={() => openLoginDialog()}
+                    color="inherit"
+                  >
+                    Log in
+                  </Button>
+                )
               }
-              {
-                account ? <Button onClick={()=>logout()} >LogOut</Button>:
-              <Button className={classes.signup} onClick={()=>openSignUpDialog()} color="inherit">
-                Sign up
-              </Button>
-              }
+              {account ? (
+                <Button onClick={() => logout()}>LogOut</Button>
+              ) : (
+                <Button
+                  className={classes.signup}
+                  onClick={() => openSignUpDialog()}
+                  color="inherit"
+                >
+                  Sign up
+                </Button>
+              )}
 
               {/* <Button className={classes.cart} color="inherit">
                 <img
@@ -209,16 +222,24 @@ const Navbar = ({count}) => {
               {/* <NavLink onClick={()=>openCartDialog()}>
               <Badge count={count}   />
               </NavLink> */}
-              <Button  onClick={()=>openCartDialog()} >
-                <Badge count={count}/>
+              <Button onClick={() => openCartDialog()}>
+                <Badge count={count} />
               </Button>
-              <LoginDialog open={open} setOpen={setOpen} toggleLogAccount={toggleLogAccount} setAccount={setAccount} />
-              <SignUpDialog open={open1} setOpen={setOpen1} toggleSignAccount={toggleSignAccount} />
-              <CartDetails  open={open2} setOpen={setOpen2} />
+              <LoginDialog
+                open={open}
+                setOpen={setOpen}
+                toggleLogAccount={toggleLogAccount}
+                setAccount={setAccount}
+              />
+              <SignUpDialog
+                open={open1}
+                setOpen={setOpen1}
+                toggleSignAccount={toggleSignAccount}
+              />
+              <CartDetails open={open2} setOpen={setOpen2} />
             </Box>
           </Toolbar>
         </AppBar>
-        
       </div>
     </>
   );
