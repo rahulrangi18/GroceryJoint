@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import db from './db/db.js';
 import Routes from './routes/Routes.js';
+import defaultProduct from './default.js';
 
 const app = express();
 
@@ -23,3 +24,5 @@ app.listen(5000, () => {
 
 
 db();
+
+defaultProduct();
