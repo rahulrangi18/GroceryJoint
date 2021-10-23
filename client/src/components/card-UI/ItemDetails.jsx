@@ -9,7 +9,9 @@ const useStyles = makeStyles({
     container: {
         display: 'flex',
         padding: 10,
-        margin: 10,
+        // margin: 10,
+        marginLeft:"10%",
+        marginRight:"10%",
     },
     leftContainer: {
         width: "30%",
@@ -20,6 +22,11 @@ const useStyles = makeStyles({
     },
     count: {
         display: 'flex',
+    },
+    btncart: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
     }
 })
 function CardDetails() {
@@ -51,13 +58,13 @@ function CardDetails() {
                     <Box className={classes.count} >
 
                         {count >= 1 ?
-                            <Box>
-                                <Button  color="primary" variant="contained" startIcon={<ShoppingCartIcon />} onClick={()=>openCartDialog()} > Go TO CARD</Button>
-                                <Button variant='contained' style={{marginLeft:20}} onClick={AddToCard} >+</Button>
+                            <Box style={{display: "flex"}}>
+                                <Button className={classes.btncart} color="primary" variant="contained" startIcon={<ShoppingCartIcon />} onClick={()=>openCartDialog()} > Go TO CARD</Button>
+                                <Button  variant='contained' style={{marginLeft:20}} onClick={AddToCard} >+</Button>
 
                             </Box>
                             :
-                            <Button onClick={AddToCard} color="primary" variant="contained" startIcon={<ShoppingCartIcon />}>ADD TO CARD</Button>
+                            <Button className={classes.btncart} onClick={AddToCard} color="primary" variant="contained" startIcon={<ShoppingCartIcon />}>ADD TO CARD</Button>
 
 
                         }

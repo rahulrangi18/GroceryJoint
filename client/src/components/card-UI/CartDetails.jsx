@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Box, makeStyles, Typography, Dialog, DialogContent, ButtonGroup, Button, Divider } from "@material-ui/core";
 import Navbar from '../header/Navbar';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ClearIcon from '@mui/icons-material/Clear';
 const useStyles = makeStyles((theme) => ({
     component: {
         // maxWidth:"850px",
@@ -37,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         // flexDirection: "flex-end",
         justifyContent: "flex-end",
-        position:"absolute",
+        position: "absolute",
         // marginBottom:0,
         bottom: 10,
         marginLeft: 5,
@@ -47,7 +48,17 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-evenly"
-    }
+    },
+    clearIcon:{
+        marginLeft:"auto",
+        // marginTop:"5px",
+        marginBottom:"5px",
+        fontSize:"large",
+        cursor:"pointer",
+    },
+    logHeader: {
+        display: "flex",
+    },
 }))
 export default function CartDetails({ open, setOpen }) {
     const [count, setCount] = useState(1);
@@ -68,7 +79,13 @@ export default function CartDetails({ open, setOpen }) {
             {/* <Navbar/> */}
             <Dialog open={open} onClose={handleClose}>
                 <DialogContent className={classes.component} >
-                    <Typography style={{ fontWeight: "600", marginLeft: "10px" }} >My Cart</Typography>
+                    <Box className={classes.logHeader}>
+                        <Typography style={{ fontWeight: "600", marginLeft: "10px" }} >My Cart</Typography>
+                        <ClearIcon
+                            onClick={() => handleClose()}
+                            className={classes.clearIcon}
+                        />
+                    </Box>
                     <Divider classes={{ root: classes.divider }} />
                     <Box className={classes.main} >
                         <Box className={classes.container} >
