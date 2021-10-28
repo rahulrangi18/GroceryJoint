@@ -1,20 +1,34 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Link, link } from 'react-router-dom';
-
+import {makeStyles,Button} from "@material-ui/core";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+const useStyles = makeStyles({
+  btncart: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
 function Card(props) {
+  const classes = useStyles();
   return (
     <>
-      <Link to='/ItemDetails'>
+      <Link to="/ItemDetails">
         <div className="cards">
           <div className="card">
             <img src={props.imgsrc} alt="myPic" className="card_img" />
             <div className="card_info">
               <span className="card_category">{props.title}</span>
               <h3 className="card_title">{props.sname}</h3>
-              {/* <Link to='/cart'> */}
-              <button>Add to Cart</button>
-              {/* </Link> */}
+              <Button
+                className={classes.btncart}
+                color="primary"
+                variant="contained"
+                startIcon={<ShoppingCartIcon />}
+              >
+                ADD TO CARD
+              </Button>
             </div>
           </div>
         </div>
