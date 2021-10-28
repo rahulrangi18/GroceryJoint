@@ -206,14 +206,14 @@ export default function Login({ open, setOpen, toggleLogAccount, setAccount }) {
             <Typography style={{ textAlign: "center", marginTop: "20px" }}>
               or
             </Typography>
-            <Button
+            {/* <Button
               className={classes.btnEmail}
               variant="contained"
               color="primary"
               startIcon={<EmailIcon />}
             >
               Continue with Email
-            </Button>
+            </Button> */}
             {/* <Button
               className={classes.btnEmail}
               variant="contained"
