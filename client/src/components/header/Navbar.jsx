@@ -189,7 +189,7 @@ const Navbar = ({count}) => {
                     onClick={() => openLoginDialog()}
                     color="inherit"
                   >
-                    Log in
+                    Login
                   </Button>
                 )
               }
