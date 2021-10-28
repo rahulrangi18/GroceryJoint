@@ -1,5 +1,5 @@
 import React from "react";
-import Sdata from "../Sdata";
+// import Sdata from "../Sdata";
 import Card from "../Cards";
 import { makeStyles } from "@material-ui/core";
 // import FooterPagePro from "../footer/Footer";
@@ -12,17 +12,18 @@ const useStyles = makeStyles({
     padding: "15px",
   },
 });
-const Products = () => {
+const Products = ({product}) => {
   const classes = useStyles();
+  console.log(product)
   return (
     <>
       <div className={classes.main}>
-        {Sdata.map((val) => (
+        {product.map(product => (
           <Card
-            title={val.title}
-            imgsrc={val.imgsrc}
-            sname={val.sname}
-            link={val.link}
+            title={product.title}
+            imgsrc={product.imgsrc}
+            sname={product.sname}
+            link={product.link}
           />
         ))}
         {/* <Card/> */}
