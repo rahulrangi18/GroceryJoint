@@ -174,24 +174,7 @@ export default function SignUp({ open, setOpen, toggleSignAccount }) {
                 style={{ width: "100%", marginTop: "20px" }}
               />
             </Box>
-            {/* <Box boxShadow={2} className={classes.search}>
-                        <div className={classes.searchIcon}>
-                            <LocationOnIcon />
-                        </div>
-                        <InputBase
-                            placeholder="Location"
-                            classes={{
-                                root: classes.inputRoot,
-                                input: classes.inputInput,
-                            }}
-                            style={{ width: "80%" }}
-                            inputProps={{ "aria-label": "phone" }}
-                        />
-                        <h1 style={mystyle}>|</h1>
-                        <Divider orientation="vertical" flexItem />
-                        <SearchBar />
-                    </Box> */}
-            {/* <TextField onChange={(e) => onValueChange(e)} name='password' label='Enter Password' /> */}
+      
             <Button
               className={classes.btnSend}
               variant="contained"

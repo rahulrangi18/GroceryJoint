@@ -2,10 +2,8 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from "react-dom";
 import GoogleLogin from "react-google-login";
 import axios from "axios";
-// import {Link} from 'react-router-dom';
 import { Dialog, DialogContent, makeStyles, Box, Typography, TextField, Button, InputBase, InputAdornment, Divider } from '@material-ui/core';
 import {Link} from 'react-router-dom'
-// import InputAdornment from '@mui/material/InputAdornment';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import EmailIcon from '@mui/icons-material/Email';
 import GoogleIcon from '@mui/icons-material/Google';
@@ -104,7 +102,7 @@ export default function Login({ open, setOpen, toggleLogAccount, setAccount }) {
         setOpen(false);
     }
     const onValueChange = (e) => {
-        setLogin({ ...login, [e.target.name]: e.target.value });
+        setLogin({ ...login, [e.target.name]: e.target.value});
         // console.log(login);
     }
     const loginUser = async() => {
@@ -176,24 +174,6 @@ export default function Login({ open, setOpen, toggleLogAccount, setAccount }) {
                 </Typography>
               )}
             </Box>
-            {/* <Box boxShadow={2} className={classes.search}>
-                        <div className={classes.searchIcon}>
-                            <LocationOnIcon />
-                        </div>
-                        <InputBase
-                            placeholder="Location"
-                            classes={{
-                                root: classes.inputRoot,
-                                input: classes.inputInput,
-                            }}
-                            style={{ width: "80%" }}
-                            inputProps={{ "aria-label": "phone" }}
-                        />
-                        <h1 style={mystyle}>|</h1>
-                        <Divider orientation="vertical" flexItem />
-                        <SearchBar />
-                    </Box> */}
-            {/* <TextField onChange={(e) => onValueChange(e)} name='password' label='Enter Password' /> */}
             <Button
               className={classes.btnSend}
               variant="contained"
@@ -206,22 +186,6 @@ export default function Login({ open, setOpen, toggleLogAccount, setAccount }) {
             <Typography style={{ textAlign: "center", marginTop: "20px" }}>
               or
             </Typography>
-            {/* <Button
-              className={classes.btnEmail}
-              variant="contained"
-              color="primary"
-              startIcon={<EmailIcon />}
-            >
-              Continue with Email
-            </Button> */}
-            {/* <Button
-              className={classes.btnEmail}
-              variant="contained"
-              color="primary"
-              startIcon={<GoogleIcon />}
-            >
-              Continue with Google
-            </Button> */}
             <GoogleLogin
               clientId="548736927785-l1s640me1mmgc2it65d583kbrb16ueg2.apps.googleusercontent.com"
               render={(renderProps) => (
@@ -248,7 +212,7 @@ export default function Login({ open, setOpen, toggleLogAccount, setAccount }) {
               onClick={() => toggleLogAccount()}
             >
               New To GroceryJoint?
-              <span style={{ color: "red" }}>Create Account</span>
+              <span style={{ color: "red" }}> Create Account</span>
             </Typography>
           </Box>
         </DialogContent>

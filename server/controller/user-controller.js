@@ -69,7 +69,7 @@ export const googlelogin = async (req,res) =>
          {
            console.log(exist);
            console.log({ message: " User already exist" });
-           return res.status(401).json({ message: "User already exist" });
+           return res.status(200).json({ message: "User already exist" });
          }
         const googleuser = response.payload;
         const newUser = new GoogleUser({given_name,family_name,name,email,sub});
