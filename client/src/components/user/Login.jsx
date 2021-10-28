@@ -117,16 +117,20 @@ export default function Login({ open, setOpen, toggleLogAccount, setAccount }) {
         }
     }
     const responseSuccessGoogle=(response)=>{
+        console.log("Google Sign in was successful,here is your response");
         console.log(response);
         axios({
           method: "POST",
-          url: "http://localhost:3000/api/googlelogin",
+          url: "http://localhost:5000/api/googlelogin",
           data: { tokenId: response.tokenId },
         }).then((response) => {
           console.log(response);
-        });
+        })
     }
-     const responseErrorGoogle = (response) => {};
+     const responseErrorGoogle = (error) => {
+        console.log(error);
+        console.log('Google Sign in was unsuccessful');
+     };
     return (
       <Dialog open={open} onClose={handleClose}>
         <DialogContent className={classes.component}>
@@ -234,7 +238,7 @@ export default function Login({ open, setOpen, toggleLogAccount, setAccount }) {
               )}
               onSuccess={responseSuccessGoogle}
               onFailure={responseErrorGoogle}
-              cookiePolicy={"single_host_origin"}
+              cookiePolicy={'single_host_origin'}
             />
             <Divider
               style={{ borderTop: "1px solid #000", marginTop: "20px" }}

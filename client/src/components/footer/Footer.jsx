@@ -124,7 +124,7 @@ const FooterPagePro = () => {
               <p className="text-center text-md-left grey-text">
                 &copy; {new Date().getFullYear()} Copyright:
                 <a
-                  href="http://iiitsurat.ac.in/"
+                  href="http://localhost:3000"
                   target="_blank"
                   className={classes.a}
                 >

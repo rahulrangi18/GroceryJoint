@@ -1,5 +1,6 @@
 import express, { response } from "express";
 import User from "../model/userSchema.js";
+import GoogleUser from "../model/GoogleUser.js";
 import bcrypt from "bcryptjs";
 import {OAuth2Client} from 'google-auth-library'
 
@@ -51,42 +52,35 @@ export const userLogin = async (req, res) => {
   }
 };
 
-export const googlelogin = async (req, res) => {
-  const { tokenId } = req.body;
+export const googlelogin = async (req,res) => 
+{
+  const{tokenId} = req.body;
   client
     .verifyIdToken({
       idToken: tokenId,
       audience:
         "548736927785-l1s640me1mmgc2it65d583kbrb16ueg2.apps.googleusercontent.com",
     })
-    .then((response) => {
-      const { email_verified, name, email } = response.playload;
-      //console.log(response.playload);
-      if(email_verified){
-        user.findOne({email}).exec((err,user)=>{
-              if(err){
-                 return res
-                   .status(401)
-                   .json({ error: "Something went wrong..." })
-              }
-             else{
-               if(user){
-                     console.log({ message: " User already exist" });
-                     return response
-                       .status(401)
-                       .json({ message: "User already exist" });
-                }
-               else{
-                  let newUser;
-                  let password="google_ka_password";
-                  newUser.save((err,user)=>{return response
-                    .status(401)
-                    .json({ message: "User already exist" });
-                   })
-               }
-             }
-        })
+    .then(async (response) => {
+      try {
+        const { given_name, family_name, name, email,sub } = response.payload;
+         const exist = await GoogleUser.findOne({ email: email });
+         if (exist) 
+         {
+           console.log(exist);
+           console.log({ message: " User already exist" });
+           return res.status(401).json({ message: "User already exist" });
+         }
+        const googleuser = response.payload;
+        const newUser = new GoogleUser({given_name,family_name,name,email,sub});
+        console.log(newUser);
+        await newUser.save();
+        res.status(200).json(`${googleuser.name} has been successfully registered`);
+        console.log(`${googleuser.name} has been successfully registered`);
+      } catch (error) {
+        // response.send('Error: ', error.message);
+        console.log(error.message);
       }
     });
-  console.log();
+   
 };

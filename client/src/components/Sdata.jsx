@@ -16,7 +16,7 @@ const Sdata = [
   },
   {
     id: 3,
-    title: " Dollar Safed Chana",
+    title: "Dollar Safed Chana",
     imgsrc: "https://m.media-amazon.com/images/I/9170qRPjSeL._SL1500_.jpg",
     sname: "1Kg.",
     link: "https://www.amazon.in/Mangat-Ram-Dollar-Safed-Chana/dp/B07H3385XS/ref=sr_1_6?dchild=1&keywords=Chole&qid=1631097086&s=grocery&sr=1-6",
