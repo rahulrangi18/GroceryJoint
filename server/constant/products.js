@@ -82,7 +82,7 @@ export const Products = [
   {
     id: 12,
     title: "Garnier Men Face Wash",
-    imgsrc: "https://m.media-amazon.com/images/I/71ftk2V9D8L._SL1500_.jpg",
+    imgsrc: "https://m.media-amazon.com/images/I/51lVD-AxVhL._SL1000_.jpg",
     sname: "100 gm",
     link: "https://www.amazon.in/Garnier-Power-White-Double-Action/dp/B00V4L6JC2/ref=sr_1_6?dchild=1&keywords=face+wash&qid=1635513276&sprefix=face%2Caps%2C294&sr=8-6",
   },
