@@ -12,13 +12,13 @@ const useStyles = makeStyles({
     padding: "15px",
   },
 });
-const Products = ({product}) => {
+const Products = ({products}) => {
   const classes = useStyles();
-  console.log(product)
+  console.log(products)
   return (
     <>
       <div className={classes.main}>
-        {product.map(product => (
+        {products.map(product => (
           <Card
             title={product.title}
             imgsrc={product.imgsrc}

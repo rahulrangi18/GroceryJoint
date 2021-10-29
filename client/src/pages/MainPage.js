@@ -5,10 +5,10 @@ import Footer from "../components/footer/Footer";
 import Navbar from '../components/header/Navbar';
 import {useSelector, useDispatch} from 'react-redux';
 import { getProducts as listProducts} from '../redux/actions/productAction';
-import { getProducts } from "../service/api";
+import  getProducts from "../service/api";
 const MainPage= () => {
-  const {product} = useSelector(state => state.getProducts)
-  console.log(product);
+  const {products} = useSelector(state => state.getProducts)
+  console.log(products);
   // const product = products;
   // console.log(product);
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const MainPage= () => {
       <div style={{ display: "flex", flexDirection: "column" }}>
         <Navbar /> 
         <div>
-          <Products product={product} />
+          <Products products={products} />
         </div>
         <div style={{ width: "100%" }}>
           <Footer />
