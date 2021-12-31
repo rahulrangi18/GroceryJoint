@@ -6,6 +6,7 @@ import Navbar from "./components/header/Navbar";
 import Footer from "./components/footer/Footer";
 import ContextProvider from "./context/ContextProvider";
 import ItemDetails from "./components/card-UI/ItemDetails";
+import ProductsImg from "./components/Products_img"
 import CartDetails from "./components/card-UI/CartDetails";
 /* import './components/header/style.css' */
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/mainpage" component={MainPage} />
           <Route exact path="/ItemDetails" component={ItemDetails} />
+          <Route exact path="/ProductsImg" component={ProductsImg} />
           {/* <Route exact path="/cart" component={CartDetails} /> */}
         </Switch>
         {/* <div style={{ width: "100%" }}>
