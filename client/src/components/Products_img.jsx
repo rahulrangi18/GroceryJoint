@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import ReactDOM from "react-dom";
 
-function upload(){
+function product_upload(){
     const [loading,setLoading]=useState(false)
     const [image,setImage]=useState("")
 
@@ -32,4 +32,4 @@ function upload(){
     )
     }
 
-export default upload;
+export default product_upload;
