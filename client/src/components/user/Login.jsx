@@ -9,92 +9,117 @@ import EmailIcon from '@mui/icons-material/Email';
 import GoogleIcon from '@mui/icons-material/Google';
 import ClearIcon from '@mui/icons-material/Clear';
 import {authenticateLogin} from '../../service/api';
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 const useStyles = makeStyles((theme) => ({
-    component: {
-        height: "80vh",
-        width: "64vh",
-    },
-    login: {
-        padding: "15px 25px",
-        display: "flex",
-        flex: 1,
-        flexDirection: "column",
-        // justifyContent:"space-between",
-    },
-    search: {
-        margin: "0 7% 0 auto",
-        borderRadius: 10,
-        backgroundColor: "#fff",
-        width: "50%",
-        marginLeft: 10,
-        display: "flex",
-        color: "black",
-        margin: 15,
-        height: 40,
-        boxShadow: "0px 13px 10px -7px rgba(0,0,0,0.1)",
-    },
-    searchIcon: {
-        padding: theme.spacing(2, 2),
-        height: "100%",
-        position: "relative",
-        pointerEvents: "none",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    inputRoot: {
-        color: "inherit",
-    },
-    inputInput: {
-        padding: 5,
-    },
-    logHeader: {
-        display: "flex",
-    },
-    clearIcon:{
-        marginLeft:"auto",
-        marginTop:"8px",
-        fontSize:"large",
-        cursor:"pointer",
-    },
-    createAccount: {
-        textAlign: 'center', 
-        marginTop: "10px", 
-        marginBottom: "10px", 
-        display: "flex",
-        justifyContent: "flex-start",
-        fontSize: "14px",
-        cursor:"pointer"
-
-    },
-    btnSend: {
-        marginTop: "20px",
-        padding:10,
-        background:"tomato",
-        textDecoration:"none",
-    },
-    btnEmail: {
-        marginTop: "20px",
-        padding:10,
-        background:"transparent",
-        textDecoration:"none",
-        color:"black",
-    },
-    error:{
-        fontSize:10,
-        color:"#ff6161",
-        marginTop:0,
-    },
-}))
+  component: {
+    height: "80vh",
+    width: "64vh",
+  },
+  login: {
+    padding: "15px 25px",
+    display: "flex",
+    flex: 1,
+    flexDirection: "column",
+    // justifyContent:"space-between",
+  },
+  search: {
+    margin: "0 7% 0 auto",
+    borderRadius: 10,
+    backgroundColor: "#fff",
+    width: "50%",
+    marginLeft: 10,
+    display: "flex",
+    color: "black",
+    margin: 15,
+    height: 40,
+    boxShadow: "0px 13px 10px -7px rgba(0,0,0,0.1)",
+  },
+  searchIcon: {
+    padding: theme.spacing(2, 2),
+    height: "100%",
+    position: "relative",
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  inputRoot: {
+    color: "inherit",
+  },
+  inputInput: {
+    padding: 5,
+  },
+  logHeader: {
+    display: "flex",
+  },
+  clearIcon: {
+    marginLeft: "auto",
+    marginTop: "8px",
+    fontSize: "large",
+    cursor: "pointer",
+  },
+  createAccount: {
+    textAlign: "center",
+    marginTop: "10px",
+    marginBottom: "10px",
+    display: "flex",
+    justifyContent: "flex-start",
+    fontSize: "14px",
+    cursor: "pointer",
+  },
+  btnSend: {
+    marginTop: "20px",
+    padding: 10,
+    background: "tomato",
+    textDecoration: "none",
+  },
+  btnEmail: {
+    marginTop: "20px",
+    padding: 10,
+    background: "transparent",
+    textDecoration: "none",
+    color: "black",
+  },
+  error: {
+    fontSize: 10,
+    color: "#ff6161",
+    marginTop: 0,
+  },
+  eyeIcon: {
+      position: "absolute",
+      top:"190px",
+      right:"10",
+      cursor:"pointer",
+  },
+}));
 const loginInitialValues = {
     email:'',
     password:'',
     fullname:''
 }
+
 export default function Login({ open, setOpen, toggleLogAccount, setAccount }) {
     const classes = useStyles();
     const [login, setLogin] = useState(loginInitialValues);
     const [error, setError] = useState(false);
+    const [values, setValues] = React.useState({
+      password: "",
+      showPassword: false,
+    });
+
+    const handleClickShowPassword = () => {
+      setValues({ ...values, showPassword: !values.showPassword });
+    };
+
+    const handleMouseDownPassword = (event) => {
+      event.preventDefault();
+    };
+
+    const handlePasswordChange = (prop) => (event) => {
+      setValues({ ...values, [prop]: event.target.value });
+    };
+
     useEffect(()=>{
         setError(false);
     },[login])
@@ -129,6 +154,7 @@ export default function Login({ open, setOpen, toggleLogAccount, setAccount }) {
         console.log(error);
         console.log('Google Sign in was unsuccessful');
      };
+   
     return (
       <Dialog open={open} onClose={handleClose}>
         <DialogContent className={classes.component}>
@@ -166,14 +192,26 @@ export default function Login({ open, setOpen, toggleLogAccount, setAccount }) {
                 name="password"
                 label="Password"
                 variant="standard"
+                type={values.showPassword ? "password" : "text"}
                 style={{ width: "100%", marginTop: "20px" }}
-              />
+              ></TextField>
+              {values.showPassword ? (
+                <VisibilityOffIcon
+                  className={classes.eyeIcon}
+                  onClick={handleClickShowPassword}
+                />
+              ) : (
+                <VisibilityIcon className={classes.eyeIcon}
+                  onClick={handleClickShowPassword} />
+              )}
+
               {error && (
                 <Typography className={classes.error}>
                   Invalid username or password
                 </Typography>
               )}
             </Box>
+
             <Button
               className={classes.btnSend}
               variant="contained"
@@ -202,7 +240,7 @@ export default function Login({ open, setOpen, toggleLogAccount, setAccount }) {
               )}
               onSuccess={responseSuccessGoogle}
               onFailure={responseErrorGoogle}
-              cookiePolicy={'single_host_origin'}
+              cookiePolicy={"single_host_origin"}
             />
             <Divider
               style={{ borderTop: "1px solid #000", marginTop: "20px" }}
