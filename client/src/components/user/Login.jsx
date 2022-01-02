@@ -192,7 +192,7 @@ export default function Login({ open, setOpen, toggleLogAccount, setAccount }) {
                 name="password"
                 label="Password"
                 variant="standard"
-                type={values.showPassword ? "password" : "text"}
+                type={values.showPassword ? "text" : "password"}
                 style={{ width: "100%", marginTop: "20px" }}
               ></TextField>
               {values.showPassword ? (
@@ -201,8 +201,10 @@ export default function Login({ open, setOpen, toggleLogAccount, setAccount }) {
                   onClick={handleClickShowPassword}
                 />
               ) : (
-                <VisibilityIcon className={classes.eyeIcon}
-                  onClick={handleClickShowPassword} />
+                <VisibilityIcon
+                  className={classes.eyeIcon}
+                  onClick={handleClickShowPassword}
+                />
               )}
 
               {error && (

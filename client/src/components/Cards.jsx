@@ -27,7 +27,7 @@ function Card(props) {
                 variant="contained"
                 startIcon={<ShoppingCartIcon />}
               >
-                ADD TO CARD
+                ADD TO CART
               </Button>
             </div>
           </div>

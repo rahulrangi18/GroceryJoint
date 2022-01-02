@@ -9,83 +9,105 @@ import ClearIcon from '@mui/icons-material/Clear';
 import GoogleLogin from "react-google-login";
 import axios from "axios";
 import {authenticateSignup} from '../../service/api'
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const useStyles = makeStyles((theme) => ({
-    component: {
-        height: "82vh",
-        width: "65vh",
-    },
-    login: {
-        padding: "15px 25px",
-        display: "flex",
-        flex: 1,
-        flexDirection: "column",
-        // justifyContent:"space-between",
-    },
-    search: {
-        margin: "0 7% 0 auto",
-        borderRadius: 10,
-        backgroundColor: "#fff",
-        width: "50%",
-        marginLeft: 10,
-        display: "flex",
-        color: "black",
-        margin: 15,
-        height: 40,
-        boxShadow: "0px 13px 10px -7px rgba(0,0,0,0.1)",
-    },
-    searchIcon: {
-        padding: theme.spacing(2, 2),
-        height: "100%",
-        position: "relative",
-        pointerEvents: "none",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    inputRoot: {
-        color: "inherit",
-    },
-    inputInput: {
-        padding: 5,
-    },
-    logHeader: {
-        display: "flex",
-    },
-    clearIcon:{
-        marginLeft:"auto",
-        marginTop:"8px",
-        fontSize:"large",
-        cursor: "pointer",
-    },
-    createAccount: {
-        textAlign: 'center', 
-        marginTop: "10px", 
-        marginBottom: "10px", 
-        display: "flex",
-        justifyContent: "flex-start",
-        fontSize: "14px",
-        cursor:"pointer"
-
-    },
-    btnSend: {
-        marginTop: "20px",
-        padding:10,
-        background:"tomato",
-        textDecoration:"none",
-    },
-    btnEmail: {
-        marginTop: "20px",
-        padding:10,
-        background:"transparent",
-        textDecoration:"none",
-        color:"black",
-    },
-}))
+  component: {
+    height: "82vh",
+    width: "65vh",
+  },
+  login: {
+    padding: "15px 25px",
+    display: "flex",
+    flex: 1,
+    flexDirection: "column",
+    // justifyContent:"space-between",
+  },
+  search: {
+    margin: "0 7% 0 auto",
+    borderRadius: 10,
+    backgroundColor: "#fff",
+    width: "50%",
+    marginLeft: 10,
+    display: "flex",
+    color: "black",
+    margin: 15,
+    height: 40,
+    boxShadow: "0px 13px 10px -7px rgba(0,0,0,0.1)",
+  },
+  searchIcon: {
+    padding: theme.spacing(2, 2),
+    height: "100%",
+    position: "relative",
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  inputRoot: {
+    color: "inherit",
+  },
+  inputInput: {
+    padding: 5,
+  },
+  logHeader: {
+    display: "flex",
+  },
+  clearIcon: {
+    marginLeft: "auto",
+    marginTop: "8px",
+    fontSize: "large",
+    cursor: "pointer",
+  },
+  createAccount: {
+    textAlign: "center",
+    marginTop: "10px",
+    marginBottom: "10px",
+    display: "flex",
+    justifyContent: "flex-start",
+    fontSize: "14px",
+    cursor: "pointer",
+  },
+  btnSend: {
+    marginTop: "20px",
+    padding: 10,
+    background: "tomato",
+    textDecoration: "none",
+  },
+  btnEmail: {
+    marginTop: "20px",
+    padding: 10,
+    background: "transparent",
+    textDecoration: "none",
+    color: "black",
+  },
+  eyeIcon: {
+    position: "absolute",
+    top: "240px",
+    right: "10",
+    cursor: "pointer",
+  },
+}));
 
 export default function SignUp({ open, setOpen, toggleSignAccount }) {
     const classes = useStyles();
+    const [values, setValues] = React.useState({
+      password: "",
+      showPassword: false,
+    });
 
+    const handleClickShowPassword = () => {
+      setValues({ ...values, showPassword: !values.showPassword });
+    };
+
+    const handleMouseDownPassword = (event) => {
+      event.preventDefault();
+    };
+
+    const handlePasswordChange = (prop) => (event) => {
+      setValues({ ...values, [prop]: event.target.value });
+    };
     const [signup, setSignup] = useState('');
     // {console.log("signup page")}
     const handleClose = () => {
@@ -160,11 +182,22 @@ export default function SignUp({ open, setOpen, toggleSignAccount }) {
               <TextField
                 onChange={(e) => onValueChange(e)}
                 id="input-with-sx"
-                name="password"
                 label="Password"
                 variant="standard"
+                type={values.showPassword ? "text" : "password"}
                 style={{ width: "100%", marginTop: "20px" }}
-              />
+              ></TextField>
+              {values.showPassword ? (
+                <VisibilityOffIcon
+                  className={classes.eyeIcon}
+                  onClick={handleClickShowPassword}
+                />
+              ) : (
+                <VisibilityIcon
+                  className={classes.eyeIcon}
+                  onClick={handleClickShowPassword}
+                />
+              )}
               <TextField
                 onChange={(e) => onValueChange(e)}
                 id="input-with-sx"
@@ -174,7 +207,7 @@ export default function SignUp({ open, setOpen, toggleSignAccount }) {
                 style={{ width: "100%", marginTop: "20px" }}
               />
             </Box>
-      
+
             <Button
               className={classes.btnSend}
               variant="contained"
