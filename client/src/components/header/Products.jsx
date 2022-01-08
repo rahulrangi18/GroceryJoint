@@ -18,7 +18,7 @@ const Products = ({products}) => {
   return (
     <>
       <div className={classes.main}>
-        {products.map(product => (
+        {products.slice(0, 5).map((product) => (
           <Card
             title={product.title}
             imgsrc={product.imgsrc}

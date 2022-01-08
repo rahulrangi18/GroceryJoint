@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url='http://localhost:5000'
+const url='http://172.20.10.12:6060'
 
 
 export const authenticateSignup = async (user)=>{

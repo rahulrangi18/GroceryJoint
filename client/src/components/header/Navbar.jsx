@@ -2,9 +2,7 @@ import React,{useState} from "react";
 import {Link,NavLink} from 'react-router-dom';
 import "./style.css";
 import logo from '../../images/logo.png'
-import cart from "../../images/cart.png";
-import Location from "./Location";
-import SearchIcon from "@material-ui/icons/Search";
+
 import SearchBar from "./SearchBar";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import LoginDialog from '../user/Login'
@@ -13,6 +11,7 @@ import {LoginContext} from '../../context/ContextProvider';
 import Profile from '../user/Profile';
 import Badge from '../card-UI/Badge';
 import CartDetails from '../card-UI/CartDetails'
+
 import {
   AppBar,
   Toolbar,
@@ -114,12 +113,14 @@ const mystyle = {
   fontFamily: "Arial",
 };
 
+
 const Navbar = ({count}) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [open1, setOpen1] = useState(false);
   const [open2, setOpen2] = useState(false);
   const [account, setAccount] = useState('');
+  //  console.log(count);
   const openLoginDialog = () => {
     setOpen(true);
     setOpen1(false);

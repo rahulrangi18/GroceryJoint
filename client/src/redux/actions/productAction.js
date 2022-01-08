@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as action from '../constants/productConstant';
 
-const url = 'http://localhost:5000';
+const url = 'http://localhost:6060';
 
 export const getProducts = () => async (dispatch) =>{
     try {

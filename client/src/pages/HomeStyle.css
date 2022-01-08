@@ -14,7 +14,7 @@ body {
 .startingImg {
   position: relative;
   width: 100vw;
-  height: 400px;
+  height: 45vh;
   margin-top: 100;  
   background-image: linear-gradient(
       to right,
@@ -43,15 +43,5 @@ body {
   color: white;
   margin-top: 70px;
 
-  /* margin-left: auto;
-  margin-right: auto; */
-  /* left: 0;
-  right: 0; */
-
-  /* top: 50%; 
-  left: 50%; 
-  transform: translate(
-    -50%,
-    -50%
-  );  */
+  
 }
