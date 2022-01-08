@@ -182,11 +182,7 @@ export default function SignUp({ open, setOpen, toggleSignAccount }) {
               <TextField
                 onChange={(e) => onValueChange(e)}
                 id="input-with-sx"
-<<<<<<< Updated upstream
                 name="password"
-=======
-               name="password"
->>>>>>> Stashed changes
                 label="Password"
                 variant="standard"
                 type={values.showPassword ? "text" : "password"}

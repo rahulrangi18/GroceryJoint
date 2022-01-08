@@ -45,3 +45,11 @@ body {
 
   
 }
+.Recomproducts{
+  background-color: aqua;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  height:100vh ;
+  
+}

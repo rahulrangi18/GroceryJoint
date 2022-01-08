@@ -4,12 +4,9 @@ import SearchBox from "../components/header/SearchBox";
 import Products from "../components/header/Products";
 import Footer from "../components/footer/Footer";
 import Navbar from '../components/header/Navbar';
-<<<<<<< Updated upstream
-// import SellLogin from "../sellPage/SellLogin";
-=======
 import {useSelector, useDispatch} from 'react-redux';
 import { getProducts as listProducts} from '../redux/actions/productAction';
->>>>>>> Stashed changes
+// import SellLogin from "../sellPage/SellLogin";
 
 const HomePage = () => {
   const {products} = useSelector(state => state.getProducts)
@@ -33,13 +30,12 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-<<<<<<< Updated upstream
-        {/* <SellLogin/> */}
-=======
-        <div> 
-        <Products products={products} n={5} />
+        <div className="Recomproducts">
+        <Products products={products}/>
         </div>
->>>>>>> Stashed changes
+       
+
+        {/* <SellLogin/> */}
         <div style={{ width: "100%" }}>
           <Footer />
         </div>

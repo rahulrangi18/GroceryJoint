@@ -10,13 +10,9 @@ import  getProducts from "../service/api";
 const MainPage= () => {
   const {products} = useSelector(state => state.getProducts)
   console.log(products);
-<<<<<<< Updated upstream
   // console.log(setIsLoggedIn);
   // const product = products;
   // console.log(product);
-=======
-  
->>>>>>> Stashed changes
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(listProducts());
@@ -24,7 +20,7 @@ const MainPage= () => {
   return (
     <>
       <div style={{ display: "flex", flexDirection: "column" }}>
-        {/* <Navbar />  */}
+        <Navbar /> 
         <div>
           <Products products={products} />
         </div>
