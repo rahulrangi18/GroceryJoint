@@ -13,6 +13,26 @@ export const authenticateSignup = async (user)=>{
 
 }
 
+export const authenticateSellerSignup = async (user)=>{
+    try{
+        return await axios.post(`${url}/SellerSign`,user)
+    }catch (error){
+        console.log('error while calling api')
+
+    }
+
+}
+
+export const authenticateSellerLogin = async (user)=>{
+    try{
+        return await axios.post(`${url}/SellerLogin`,user)
+    }catch (error){
+        console.log('error while calling api')
+
+    }
+
+}
+
 export const authenticateLogin = async (user) => {
     try {
         return await axios.post(`${url}/login`,user);

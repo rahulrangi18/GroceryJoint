@@ -9,6 +9,7 @@ import  getProducts from "../service/api";
 const MainPage= () => {
   const {products} = useSelector(state => state.getProducts)
   console.log(products);
+  // console.log(setIsLoggedIn);
   // const product = products;
   // console.log(product);
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ const MainPage= () => {
   return (
     <>
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <Navbar /> 
+        {/* <Navbar />  */}
         <div>
           <Products products={products} />
         </div>

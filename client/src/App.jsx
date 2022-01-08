@@ -8,6 +8,9 @@ import ContextProvider from "./context/ContextProvider";
 import ItemDetails from "./components/card-UI/ItemDetails";
 import ProductsImg from "./components/Products_img"
 import CartDetails from "./components/card-UI/CartDetails";
+import SellLogin from "./sellPage/SellLogin";
+import SellSignup from "./sellPage/SellSignup";
+
 /* import './components/header/style.css' */
 const App = () => {
   return (
@@ -19,6 +22,9 @@ const App = () => {
           <Route exact path="/mainpage" component={MainPage} />
           <Route exact path="/ItemDetails" component={ItemDetails} />
           <Route exact path="/ProductsImg" component={ProductsImg} />
+          <Route exact path="/seller" component={SellLogin}/>
+          <Route exact path="/sellerSign" component={SellSignup}/>
+
           {/* <Route exact path="/cart" component={CartDetails} /> */}
         </Switch>
         {/* <div style={{ width: "100%" }}>

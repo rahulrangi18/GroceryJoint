@@ -3,6 +3,8 @@ import "../pages/HomeStyle.css";
 import SearchBox from "../components/header/SearchBox";
 import Footer from "../components/footer/Footer";
 import Navbar from '../components/header/Navbar';
+// import SellLogin from "../sellPage/SellLogin";
+
 const HomePage = () => {
   return (
     <>
@@ -17,6 +19,7 @@ const HomePage = () => {
             </div>
           </div>
         </div>
+        {/* <SellLogin/> */}
         <div style={{ width: "100%" }}>
           <Footer />
         </div>
