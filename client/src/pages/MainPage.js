@@ -22,7 +22,7 @@ const MainPage= () => {
         <div>
           <Products products={products} />
         </div>
-        <div style={{ width: "100%" }}>
+        <div style={{ width:"100%"}}>
           <Footer />
         </div>
       </div>
