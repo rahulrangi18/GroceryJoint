@@ -14,7 +14,7 @@ body {
 .startingImg {
   position: relative;
   width: 100vw;
-  height: 45vh;
+  height: 55vh;
   margin-top: 100;  
   background-image: linear-gradient(
       to right,
@@ -30,6 +30,12 @@ body {
   flex-wrap: wrap;
   text-align: center;
   justify-content: center;
+}
+
+@media only screen and (max-width: 1331px) {
+  .startingImg {
+    height: 60vh;
+  }
 }
 
 /* .fgfg{
@@ -71,7 +77,7 @@ a{
   color: black;
 }
 
-h4.hover{
+a.hover{
   color: black;
 }
 
