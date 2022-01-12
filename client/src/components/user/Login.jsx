@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import GoogleLogin from "react-google-login";
 import axios from "axios";
 import { Dialog, DialogContent, makeStyles, Box, Typography, TextField, Button, InputBase, InputAdornment, Divider } from '@material-ui/core';
-import {Link} from 'react-router-dom'
+import {Link,useHistory} from 'react-router-dom'
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import EmailIcon from '@mui/icons-material/Email';
 import GoogleIcon from '@mui/icons-material/Google';
@@ -11,6 +11,8 @@ import ClearIcon from '@mui/icons-material/Clear';
 import {authenticateLogin} from '../../service/api';
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import Navbar from '../header/Navbar';
+import mainpage from '../../pages/MainPage'
 const useStyles = makeStyles((theme) => ({
   component: {
     height: "80vh",
@@ -93,6 +95,8 @@ const useStyles = makeStyles((theme) => ({
       cursor:"pointer",
   },
 }));
+
+
 const loginInitialValues = {
     email:'',
     password:'',
@@ -103,10 +107,14 @@ export default function Login({ open, setOpen, toggleLogAccount, setAccount }) {
     const classes = useStyles();
     const [login, setLogin] = useState(loginInitialValues);
     const [error, setError] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [values, setValues] = React.useState({
       password: "",
       showPassword: false,
     });
+
+    const history = useHistory();
+
 
     const handleClickShowPassword = () => {
       setValues({ ...values, showPassword: !values.showPassword });
@@ -136,15 +144,17 @@ export default function Login({ open, setOpen, toggleLogAccount, setAccount }) {
         else{
             setError(false);
             handleClose();
+            setIsLoggedIn(true);
             setAccount(login.email)
         }
+        history.push("/mainpage");
     }
     const responseSuccessGoogle=(response)=>{
         console.log("Google Sign in was successful,here is your response");
         console.log(response);
         axios({
           method: "POST",
-          url: "http://localhost:5000/api/googlelogin",
+          url: "http://localhost:6060/api/googlelogin",
           data: { tokenId: response.tokenId },
         }).then((response) => {
           console.log(response);
@@ -220,7 +230,9 @@ export default function Login({ open, setOpen, toggleLogAccount, setAccount }) {
               color="primary"
               onClick={() => loginUser()}
             >
-              Log In
+              {/* <Link to="/mainpage" style={{textDecoration:"none", color: "#fff" }} > */}
+                Log In
+              {/* </Link> */}
             </Button>
             {/* <Divider>OR</Divider> */}
             <Typography style={{ textAlign: "center", marginTop: "20px" }}>

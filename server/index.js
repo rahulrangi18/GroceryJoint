@@ -18,8 +18,8 @@ app.use(express.json());
 
 app.use('/',Routes);
 
-app.listen(5000, () => {
-    console.log('server start at port 5000');
+app.listen(6060, () => {
+    console.log('server start at port 6060');
 });
 
 

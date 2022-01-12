@@ -129,7 +129,7 @@ export default function SignUp({ open, setOpen, toggleSignAccount }) {
       console.log(response);
       axios({
         method: "POST",
-        url: "http://localhost:5000/api/googlelogin",
+        url: "http://localhost:6060/api/googlelogin",
         data: { tokenId: response.tokenId },
       }).then((response) => {
         console.log(response);
@@ -182,6 +182,7 @@ export default function SignUp({ open, setOpen, toggleSignAccount }) {
               <TextField
                 onChange={(e) => onValueChange(e)}
                 id="input-with-sx"
+                name="password"
                 label="Password"
                 variant="standard"
                 type={values.showPassword ? "text" : "password"}

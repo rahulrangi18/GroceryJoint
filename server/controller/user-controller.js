@@ -27,6 +27,7 @@ export const userSignup = async (request, response) => {
   } catch (error) {
     // response.send('Error: ', error.message);
     console.log(error.message);
+    console.log("hthith")
   }
 };
 

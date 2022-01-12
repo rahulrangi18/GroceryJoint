@@ -14,7 +14,7 @@ body {
 .startingImg {
   position: relative;
   width: 100vw;
-  height: 400px;
+  height: 45vh;
   margin-top: 100;  
   background-image: linear-gradient(
       to right,
@@ -83,4 +83,12 @@ h4.hover{
 .display:hover{
   box-shadow: 0px 30px 18px -8px rgba(0,0,0,0.1);
   transform: scale(1.05,1.05);
+}
+.Recomproducts{
+  background-color: aqua;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  height:100vh ;
+  
 }

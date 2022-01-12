@@ -6,9 +6,11 @@ import Navbar from '../components/header/Navbar';
 import {useSelector, useDispatch} from 'react-redux';
 import { getProducts as listProducts} from '../redux/actions/productAction';
 import  getProducts from "../service/api";
+
 const MainPage= () => {
   const {products} = useSelector(state => state.getProducts)
   console.log(products);
+  // console.log(setIsLoggedIn);
   // const product = products;
   // console.log(product);
   const dispatch = useDispatch();
