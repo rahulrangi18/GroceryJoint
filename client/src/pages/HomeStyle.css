@@ -97,3 +97,16 @@ a.hover{
   flex-direction: column;
   height: 180vh;
 }
+.container{
+ display: flex;
+ flex-direction: row-reverse;
+ 
+}
+.topnav{
+   
+}
+.textStyle{
+   color: white;
+   margin-left: 25px;
+   font-size:20px;
+}

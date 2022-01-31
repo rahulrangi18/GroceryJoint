@@ -22,6 +22,8 @@ const App = () => {
           <Route exact path="/mainpage" component={MainPage} />
           <Route exact path="/ItemDetails" component={ItemDetails} />
           <Route exact path="/ProductsImg" component={ProductsImg} />
+          <Route exact path="/Seller" component={SellLogin} />
+          <Route exact path="/sellerSign" component={SellSignup} />
         </Switch>
       </div>
     </ContextProvider>

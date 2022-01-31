@@ -23,6 +23,19 @@ const HomePage = () => {
       <div className="HomePage">
         {/* <Navbar/> */}
         <div className="startingImg">
+          <div className="container">
+            <div className="topnav">
+              <a href="#sellerlogin" className="textStyle">
+                Add Store
+              </a>
+              <a href="#userlogin" className="textStyle">
+                Login
+              </a>
+              <a href="#signup" className="textStyle">
+                Sign up
+              </a>
+            </div>
+          </div>
           <div
             className="mainHeading"
             style={{
