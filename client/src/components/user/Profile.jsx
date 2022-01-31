@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const Profile = ({ account, setAccount }) => {
-
     const classes = useStyles();
     const [open, setOpen] = useState(false);
 
@@ -26,7 +25,6 @@ const Profile = ({ account, setAccount }) => {
         setOpen(event.currentTarget);
     }
 
-    console.log(account);
     const logout = () => {
         setAccount('')
     }

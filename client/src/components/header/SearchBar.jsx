@@ -7,15 +7,15 @@ const useStyles = makeStyles((theme) => ({
     margin: "0 7% 0 auto",
     // borderRadius: 2,
     // backgroundColor: "#fff",
-    width: "80%",
+    width: "60%",
     marginLeft: 10,
     display: "flex",
     color: "black",
     margin: 1,
-    height: 50,
+    height: 38,
   },
   searchIcon: {
-    // padding: theme.spacing(2, 2),
+    padding: theme.spacing(2, 2),
     height: "100%",
     position: "relative",
     pointerEvents: "none",
@@ -38,11 +38,10 @@ export default function SearchBar() {
   return (
     <Box className={classes.search}>
       <div className={classes.searchIcon}>
-      <i class="fas fa-search" style={{color: "grey"}}></i>
-        {/* <SearchIcon /> */}
+        <SearchIcon />
       </div>
       <InputBase
-        placeholder="Search for products or stores"
+        placeholder="Search Items...."
         classes={{
           root: classes.inputRoot,
           input: classes.inputInput,

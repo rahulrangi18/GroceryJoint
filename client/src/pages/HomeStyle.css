@@ -91,10 +91,9 @@ a.hover{
   transform: scale(1.05,1.05);
 }
 .Recomproducts{
-  background-color: aqua;
+  background-color: #494032;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  height:100vh ;
-  
+  height: 180vh;
 }

@@ -14,8 +14,7 @@ function Card(props) {
   const classes = useStyles();
   return (
     <>
-    <div className="container">
-    <Link to="/ItemDetails">
+      <Link to="/ItemDetails">
         <div className="cards">
           <div className="card">
             <img src={props.imgsrc} alt="myPic" className="card_img" />
@@ -34,8 +33,6 @@ function Card(props) {
           </div>
         </div>
       </Link>
-    </div>
-      
     </>
   );
 }

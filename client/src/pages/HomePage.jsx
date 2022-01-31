@@ -23,8 +23,18 @@ const HomePage = () => {
       <div className="HomePage">
         {/* <Navbar/> */}
         <div className="startingImg">
-          <div className="mainHeading" style={{display: "flex" ,flexDirection: "column",width: "50%",flexWrap: "wrap"}}>
-            <div style={{ fontSize: "78px",fontFamily: "'Urbanist', sans-serif" }}>
+          <div
+            className="mainHeading"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              width: "50%",
+              flexWrap: "wrap",
+            }}
+          >
+            <div
+              style={{ fontSize: "78px", fontFamily: "'Urbanist', sans-serif" }}
+            >
               <img
                 src={logo}
                 alt="logo"
@@ -33,7 +43,14 @@ const HomePage = () => {
               />
               <i>GroceryJoint</i>
             </div>
-            <div style={{ fontSize: "30px" ,fontFamily:"'Open Sans', sans-serif"}}>You want it,we got it</div>
+            <div
+              style={{
+                fontSize: "30px",
+                fontFamily: "'Open Sans', sans-serif",
+              }}
+            >
+              You want it,we got it.
+            </div>
             <div>
               <SearchBox />
             </div>
@@ -41,69 +58,75 @@ const HomePage = () => {
         </div>
         <div className="secondPart">
           <a href="mainpage">
-          <div className="display">
-           <img src="https://thumbs.dreamstime.com/b/smiling-delivery-man-giving-grocery-bag-to-woman-customer-home-online-food-shopping-service-concept-178143651.jpg" 
-              alt="Avatar" 
-              style={{width:"100%" ,borderRadius: "8% 8% 0 0"}}
-            />
-            <div className="container">
-              <h4>Order Food Online</h4>
+            <div className="display">
+              <img
+                src="https://thumbs.dreamstime.com/b/smiling-delivery-man-giving-grocery-bag-to-woman-customer-home-online-food-shopping-service-concept-178143651.jpg"
+                alt="Avatar"
+                style={{ width: "100%", borderRadius: "8% 8% 0 0" }}
+              />
+              <div className="container">
+                <h4>Order Food Online</h4>
                 {/* <h4><b>John Doe</b></h4>
                   <p>Architect & Engineer</p> */}
+              </div>
             </div>
-          </div>
           </a>
-           
+
           <a href="mainpage">
-          <div className="display">
-           <img src="https://thumbs.dreamstime.com/b/smiling-delivery-man-giving-grocery-bag-to-woman-customer-home-online-food-shopping-service-concept-178143651.jpg" 
-              alt="Avatar" 
-              style={{width:"100%" ,borderRadius: "8% 8% 0 0"}}
-            />
-            <div className="container">
-              <h4>Order Food Online</h4>
+            <div className="display">
+              <img
+                src="https://thumbs.dreamstime.com/b/smiling-delivery-man-giving-grocery-bag-to-woman-customer-home-online-food-shopping-service-concept-178143651.jpg"
+                alt="Avatar"
+                style={{ width: "100%", borderRadius: "8% 8% 0 0" }}
+              />
+              <div className="container">
+                <h4>Order Food Online</h4>
                 {/* <h4><b>John Doe</b></h4>
                   <p>Architect & Engineer</p> */}
+              </div>
             </div>
-          </div>
           </a>
-          
+
           <a href="mainpage">
-          <div className="display">
-           <img src="https://thumbs.dreamstime.com/b/smiling-delivery-man-giving-grocery-bag-to-woman-customer-home-online-food-shopping-service-concept-178143651.jpg" 
-              alt="Avatar" 
-              style={{width:"100%" ,borderRadius: "8% 8% 0 0"}}
-            />
-            <div className="container">
-              <h4>Order Food Online</h4>
+            <div className="display">
+              <img
+                src="https://thumbs.dreamstime.com/b/smiling-delivery-man-giving-grocery-bag-to-woman-customer-home-online-food-shopping-service-concept-178143651.jpg"
+                alt="Avatar"
+                style={{ width: "100%", borderRadius: "8% 8% 0 0" }}
+              />
+              <div className="container">
+                <h4>Order Food Online</h4>
                 {/* <h4><b>John Doe</b></h4>
                   <p>Architect & Engineer</p> */}
+              </div>
             </div>
-          </div>
           </a>
           <a href="mainpage">
-          <div className="display">
-           <img src="https://thumbs.dreamstime.com/b/smiling-delivery-man-giving-grocery-bag-to-woman-customer-home-online-food-shopping-service-concept-178143651.jpg" 
-              alt="Avatar" 
-              style={{width:"100%" ,borderRadius: "8% 8% 0 0"}}
-            />
-            <div className="container">
-              <h4>Order Food Online</h4>
+            <div className="display">
+              <img
+                src="https://thumbs.dreamstime.com/b/smiling-delivery-man-giving-grocery-bag-to-woman-customer-home-online-food-shopping-service-concept-178143651.jpg"
+                alt="Avatar"
+                style={{ width: "100%", borderRadius: "8% 8% 0 0" }}
+              />
+              <div className="container">
+                <h4>Order Food Online</h4>
                 {/* <h4><b>John Doe</b></h4>
                   <p>Architect & Engineer</p> */}
+              </div>
             </div>
-          </div>
           </a>
         </div>
         <div className="Recomproducts">
-        <Products products={products}/>
+          <Products products={products} />
         </div>
-       
 
-        <SellLogin/>
+        {/* <div>
+          <SellLogin />
+        </div> */}
+
         <div style={{ width: "100%" }}>
           <Footer />
-        </div> 
+        </div>
       </div>
     </>
   );

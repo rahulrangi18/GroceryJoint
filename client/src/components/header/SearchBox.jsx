@@ -26,14 +26,14 @@ const useStyles = makeStyles((theme) => ({
   },
   search: {
     margin: "0 7% 0 auto",
-    borderRadius: 20,
+    borderRadius: 10,
     backgroundColor: "#fff",
     width: "100%",
     marginLeft: 10,
     display: "flex",
     color: "black",
     margin: 15,
-    height: 50,
+    height: 40,
     boxShadow: "0px 13px 10px -7px rgba(0,0,0,0.1)",
   },
   searchIcon: {
@@ -53,9 +53,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 const mystyle = {
-  color: "grey",
-  fontSize: 20,
-  marginTop: "10px",
+  color: "black",
+  fontSize: 30,
   fontFamily: "Arial",
 };
 const SearchBox = () => {
@@ -65,9 +64,7 @@ const SearchBox = () => {
       <div>
         <Box boxShadow={2} className={classes.search}>
           <div className={classes.searchIcon}>
-            <LocationOnIcon 
-              style={{color: "#B3541E"}}
-            />
+            <LocationOnIcon />
           </div>
           <InputBase
             placeholder="Location"
@@ -75,7 +72,7 @@ const SearchBox = () => {
               root: classes.inputRoot,
               input: classes.inputInput,
             }}
-            style={{ width: "60%" }}
+            style={{ width: "15%" }}
             inputProps={{ "aria-label": "search" }}
           />
           <h1 style={mystyle}>|</h1>

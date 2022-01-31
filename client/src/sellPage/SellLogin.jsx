@@ -41,40 +41,43 @@ const SellLogin = () => {
 
 
     return (
+      <>
         <Grid>
-            <Paper elevation={10} style={paperStyle}>
-                <Grid align='center'>
-                    <Avatar style={avatarStyle}><FaceIcon /></Avatar>
-                    <h2>Sign In</h2>
-                </Grid>
-                < TextField
-                    onChange={(e) => onValueChange(e)}
-                    id="input-with-sx"
-                    name="email"
-                    label="Email"
-                    variant="standard"
-                    required
-                    fullWidth
-                    margin="normal"
-                    autoComplete="email"
-                    autoFocus
-                // style={{ width: "100%", marginTop: "20px" }}
-                />
-                <TextField
-                    onChange={(e) => onValueChange(e)}
-                    id="input-with-sx"
-                    name="password"
-                    label="Password"
-                    type="password"
-                    variant="standard"
-                    required
-                    fullWidth
-                    margin="normal"
-                    autoComplete="email"
-                    autoFocus
-                // style={{ width: "100%", marginTop: "20px" }}
-                />
-                {/* <FormControlLabel
+          <Paper elevation={10} style={paperStyle}>
+            <Grid align="center">
+              <Avatar style={avatarStyle}>
+                <FaceIcon />
+              </Avatar>
+              <h2>Seller Sign In</h2>
+            </Grid>
+            <TextField
+              onChange={(e) => onValueChange(e)}
+              id="input-with-sx"
+              name="email"
+              label="Email"
+              variant="standard"
+              required
+              fullWidth
+              margin="normal"
+              autoComplete="email"
+              autoFocus
+              // style={{ width: "100%", marginTop: "20px" }}
+            />
+            <TextField
+              onChange={(e) => onValueChange(e)}
+              id="input-with-sx"
+              name="password"
+              label="Password"
+              type="password"
+              variant="standard"
+              required
+              fullWidth
+              margin="normal"
+              autoComplete="email"
+              autoFocus
+              // style={{ width: "100%", marginTop: "20px" }}
+            />
+            {/* <FormControlLabel
                     control={
                     <Checkbox
                         name="checkedB"
@@ -83,30 +86,28 @@ const SellLogin = () => {
                     }
                     label="Remember me"
                  /> */}
-                <Button 
-                    type='submit' 
-                    color='primary' 
-                    variant="contained" 
-                    style={btnstyle} 
-                    fullWidth
-                    onClick={() => LoginUser()}
-                > 
-                    <Typography style={{ marginRight:5}}> Sign in</Typography>
-                    <LoginIcon/>
-                </Button>
-                <Typography style={{marginTop: "20px"}}>
-                    <Link href="#" >
-                        Forgot password ?
-                    </Link>
-                </Typography>
-                <Typography style={{marginTop: "20px"}} > Do you have an account ?
-                    <Link to="/sellerSign" >
-                        Sign Up
-                    </Link>
-                </Typography>
-            </Paper>
+            <Button
+              type="submit"
+              color="primary"
+              variant="contained"
+              style={btnstyle}
+              fullWidth
+              onClick={() => LoginUser()}
+            >
+              <Typography style={{ marginRight: 5 }}> Sign in</Typography>
+              <LoginIcon />
+            </Button>
+            <Typography style={{ marginTop: "20px" }}>
+              <Link href="#">Forgot password ?</Link>
+            </Typography>
+            <Typography style={{ marginTop: "20px" }}>
+              {" "}
+              Do you have an account ?<Link to="/sellerSign">Sign Up</Link>
+            </Typography>
+          </Paper>
         </Grid>
-    )
+      </>
+    );
 }
 
 export default SellLogin
