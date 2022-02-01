@@ -12,6 +12,7 @@ export const storeProduct = async (request, response) => {
         //     return response.status(401).json({ message: "User already exist" });
         // }
         const seller = request.body;
+        console.log(seller);
         const newUser = new stores(seller);
         //password hashing
         console.log(newUser);

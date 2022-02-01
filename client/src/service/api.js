@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url='http://172.20.10.12:6060'
+const url='http://172.28.0.150:6060'
 
 
 export const authenticateSignup = async (user)=>{
@@ -53,7 +53,7 @@ export const getProducts = async() => {
 
 export const productRegistration = async (product)=>{
     try{
-        console.log('welcome store product')
+        // console.log('welcome store product')
         return await axios.post(`${url}/newProduct`,product)
     }catch (error){
         console.log('error while calling api')

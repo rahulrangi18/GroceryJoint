@@ -22,7 +22,7 @@ function Form() {
   const [loading, setLoading] = useState(false)
   const [image, setImage] = useState("")
 
-  const uploadImage = async e => {
+  const uploadImage = async (e) => {
     const files = e.target.files
     const data = new FormData()
     data.append('file', files[0])
@@ -58,7 +58,7 @@ function Form() {
 
     console.log(product);
     console.log("rangiiiiiiiiiiiiiiiiiiiiiiii")
-    uploadImage();
+    // uploadImage();
     let response = await productRegistration(product);
     // handleClose();
     // if(!response) return console.log("response not found");
@@ -73,7 +73,7 @@ function Form() {
     <div className="mycontainer">
       <div className="row">
         <div className="col-md-4 col-md-offset-4">
-          <form className="registrationForm">
+          <form className="registrationForm" onSubmit={submitButton}>
             <h2 className="title">Seller form</h2>
 
             <div>
@@ -195,7 +195,7 @@ function Form() {
               />
             </div>
 
-            <button className="btn btn-primary" onClick={() => submitButton()}>
+            <button type="submit"  className="btn btn-primary" >
               Submit
             </button>
           </form>
