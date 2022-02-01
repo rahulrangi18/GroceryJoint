@@ -1,7 +1,7 @@
 import React, { Component,useState } from 'react';
 //import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import FormValidator from './FormValidator';
-import './ProductForm.css';
+// import './ProductForm.css';
 
 
 class ProductForm extends Component {
@@ -154,10 +154,7 @@ class ProductForm extends Component {
 
                             <div className={validation.email.isInvalid && 'has-error'}>
                                 <label htmlFor="file" className="labels">Product Image</label>
-                                <input type="file" className="image_input" name="file" onChange={this.handleInputChange} /><input type="file" name="file" placeholder="upload here.." onChange={uploadImage}/>
-                                    {
-                                        loading?(<h3>Loading....</h3>):(<img src={image} style={{width:'300px'}}/>)
-                                    } 
+                                <input type="file" className="image_input" name="file" onChange={this.handleInputChange} />
                                 <span className="help-block">{validation.file.message}</span> 
                             </div>
 

@@ -10,6 +10,8 @@ import { fontFamily } from "@mui/system";
 import { useSelector, useDispatch } from 'react-redux';
 import { getProducts as listProducts } from '../redux/actions/productAction';
 import SellLogin from "../sellPage/SellLogin";
+import LoginDialog from "../components/user/Login";
+import SignUpDialog from "../components/user/SignUp";
 import {
   AppBar,
   Toolbar,
@@ -21,12 +23,6 @@ import {
   Button,
   Divider,
 } from "@material-ui/core";
-
-
-import LoginDialog from '../components/user/Login';
-import SignUpDialog from '../components/user/SignUp';
-
-
 
 const useStyles = makeStyles(() => ({
   login: {
