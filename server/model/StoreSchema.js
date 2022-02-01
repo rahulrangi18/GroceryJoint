@@ -44,9 +44,9 @@ const StoreSchema = new mongoose.Schema({
         required: true,
         trim: true,
     },
-    // file:{
-    //     type: "string",
-    // },
+    image_url:{
+        type: "string",
+    },
     Snumber:{
         type: Number,
     },

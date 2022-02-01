@@ -1,177 +1,223 @@
-import React, { Component,useState } from 'react';
-//import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import FormValidator from './FormValidator';
-// import './ProductForm.css';
+import React, { useState } from "react";
 
+import { productRegistration } from '../service/api'
 
-class ProductForm extends Component {
-    
-    constructor() {
-        super();
-        this.validator = new FormValidator([{
-            field: 'full_name',
-            method: 'isEmpty',
-            validWhen: false,
-            message: 'Enter full name.'
-        }, {
-            field: 'email',
-            method: 'isEmpty',
-            validWhen: false,
-            message: 'Enter your email address.'
-        }, {
-            field: 'email',
-            method: 'isEmail',
-            validWhen: true,
-            message: 'Enter valid email address.'
-        }, {
-            field: 'phone',
-            method: 'isEmpty',
-            validWhen: false,
-            message: 'Enter a phone number.'
-        }, {
-            field: 'phone',
-            method: 'matches',
-            args: [/^\(?\d\d\d\)? ?\d\d\d-?\d\d\d\d$/],
-            validWhen: true,
-            message: 'Enter valid phone number.'
-        }, {
-            field: 'Address',
-            method: 'isEmpty',
-            validWhen: false,
-            message: 'Enter the Address.'
-        }, {
-            field: 'Sname',
-            method: 'isEmpty',
-            validWhen: false,
-            message: 'Enter Shop name.'
-        }, {
-            field: 'Sphone',
-            method: 'isEmpty',
-            validWhen: false,
-            message: 'Enter a Phone Number.'
-        }, {
-            field: 'Sphone',
-            method: 'matches',
-            args: [/^\(?\d\d\d\)? ?\d\d\d-?\d\d\d\d$/],
-            validWhen: true,
-            message: 'Enter valid Phone Number.'
-        }, {
-            field: 'product_name',
-            method: 'isEmpty',
-            validWhen: false,
-            message: 'Enter Product Name.'
-        }, {
-            field: 'file',
-            method: 'isEmpty',
-            validWhen: false,
-            message: 'Choose an Image of the product'
-        }, {
-            field: 'number',
-            method: 'isEmpty',
-            validWhen: false,
-            message: 'Enter the quantity of Product'
-        }, {
-            field: 'Snumber',
-            method: 'isEmpty',
-            validWhen: false,
-            message: 'Enter the quantity of Product in Stock'
-        }]);
-        this.state = {
-            full_name: '',
-            email: '',
-            phone: '',
-            Address: '',
-            Sname: '',
-            Sphone: '',
-            product_name: '',
-            file: '',
-            number: '',
-            Snumber: '',
-            validation: this.validator.valid(),
-        }
-        this.submitted = false;
-    }
-    passwordMatch = (confirmation, state) => (state.password === confirmation)
-    handleInputChange = event => {
-        event.preventDefault();
-        this.setState({
-            [event.target.name]: event.target.value,
-        });
-    }
-    handleFormSubmit = event => {
-        event.preventDefault();
-        const validation = this.validator.validate(this.state);
-        this.setState({
-            validation
-        });
-        this.submitted = true;
-        if (validation.isValid) {
-            //reaches here if form validates successfully...
-        }
-    }
-    render() {
-        let validation = this.submitted ? this.validator.validate(this.state) : this.state.validation
-        return (
-            <div className="mycontainer">
-                <div className="row">
-                    <div className="col-md-4 col-md-offset-4">
+const initializeValues = {
+  full_name: "",
+  email: "",
+  phone: "",
+  homeAddress: "",
+  shopAddress: "",
+  ShopName: "",
+  ShopPhone: "",
+  productName: "",
+  image_url: "",
+  Snumber: "",
 
-                        <form className="registrationForm">
-
-                            <h2 className='title'>Seller form</h2>
-
-                            <div className={validation.email.isInvalid && 'has-error'}>
-                                <label htmlFor="full_name" className="labels">Full Name</label>
-                                <input type="string" className="form-control" name="full_name" onChange={this.handleInputChange} /> <span className="help-block">{validation.full_name.message}</span> </div>
-
-                            <div className={validation.email.isInvalid && 'has-error'}>
-                                <label htmlFor="email" className="labels">Email address</label>
-                                <input type="email" className="form-control" name="email" onChange={this.handleInputChange} /> <span className="help-block">{validation.email.message}</span> </div>
-
-                            <div className={validation.phone.isInvalid && 'has-error'}>
-                                <label htmlFor="phone" className="labels">Phone number</label>
-                                <input type="phone" className="form-control" name="phone" onChange={this.handleInputChange} /> <span className="help-block">{validation.phone.message}</span> </div>
-
-                            <div className={validation.email.isInvalid && 'has-error'}>
-                                <label htmlFor="Address" className="labels">Home Address</label>
-                                <input type="string" className="form-control" name="Address" onChange={this.handleInputChange} /> <span className="help-block">{validation.Address.message}</span> </div>
-
-                            <div className={validation.email.isInvalid && 'has-error'}>
-                                <label htmlFor="Address" className="labels">Shop Address</label>
-                                <input type="string" className="form-control" name="Address" onChange={this.handleInputChange} /> <span className="help-block">{validation.Address.message}</span> </div>
-
-                            <div className={validation.email.isInvalid && 'has-error'}>
-                                <label htmlFor="Sname" className="labels">Shop Name</label>
-                                <input type="string" className="form-control" name="Sname" onChange={this.handleInputChange} /> <span className="help-block">{validation.Sname.message}</span> </div>
-
-                            <div className={validation.phone.isInvalid && 'has-error'}>
-                                <label htmlFor="Sphone" className="labels">Shop Phone number</label>
-                                <input type="phone" className="form-control" name="Sphone" onChange={this.handleInputChange} /> <span className="help-block">{validation.Sphone.message}</span> </div>
-
-                            <div className={validation.email.isInvalid && 'has-error'}>
-                                <label htmlFor="product_name" className="labels">Product Name</label>
-                                <input type="string" className="form-control" name="product_name" onChange={this.handleInputChange} /> <span className="help-block">{validation.product_name.message}</span> </div>
-
-                            <div className={validation.email.isInvalid && 'has-error'}>
-                                <label htmlFor="file" className="labels">Product Image</label>
-                                <input type="file" className="image_input" name="file" onChange={this.handleInputChange} />
-                                <span className="help-block">{validation.file.message}</span> 
-                            </div>
-
-                            <div className={validation.email.isInvalid && 'has-error'}>
-                                <label htmlFor="number" className="labels">Quantity</label>
-                                <input type="number" className="form-control" name="number" onChange={this.handleInputChange} /> <span className="help-block">{validation.number.message}</span> </div>
-
-                            <div className={validation.email.isInvalid && 'has-error'}>
-                                <label htmlFor="Snumber" className="labels">Quantity in Stock</label>
-                                <input type="number" className="form-control" name="Snumber" onChange={this.handleInputChange} /> <span className="help-block">{validation.Snumber.message}</span> </div>
-
-                            <button onClick={this.handleFormSubmit} className="btn btn-primary"> Submit </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        )
-    }
 }
-export default ProductForm;
+
+
+function Form() {
+  const [product, setProduct] = useState(initializeValues);
+  const [imgUrl,setImgUrl] = useState('');
+  
+  const [loading,setLoading]=useState(false)
+  const [image,setImage]=useState("")
+
+  const uploadImage= async e=>{
+        const files=e.target.files
+        const data=new FormData()
+        data.append('file',files[0])
+        data.append('upload_preset','Products')
+        setLoading(true)
+        
+
+        const res=await fetch("https://api.cloudinary.com/v1_1/groceryjoint/image/upload",{
+            method:'POST',body:data
+        })
+
+        const file=await res.json()
+        console.log(file)
+        
+        // product image url file.secure_url
+        const img_url = file.secure_url;
+        product.image_url= img_url;
+       // console.log(img_url)
+        setImgUrl({...imgUrl,[imgUrl]:img_url})
+        console.log(imgUrl)
+        //image_url(img_url)
+        setImage(file.secure_url)
+        setLoading(false)
+    }
+  
+  const inputsHandler = (e) => {
+    e.preventDefault();
+    // console.log(e.target.value)
+    const { name, value } = e.target;
+    setProduct({
+      ...product,
+      [name]: value,
+    });
+    console.log(product);
+  };
+
+  // const submitButton = () => {
+  //   alert(product.full_name);
+  //   uploadImage();
+  // };
+
+  const submitButton = async () => {
+
+    console.log(product);
+    
+    let response = await productRegistration(product);
+    console.log(`${product.full_name} has registered`);
+
+  }
+
+
+
+  return (
+    <div className="mycontainer">
+      <div className="row">
+        <div className="col-md-4 col-md-offset-4">
+          <form className="registrationForm" onSubmit={submitButton}>
+            <h2 className="title">Seller form</h2>
+
+            <div>
+              <label htmlFor="full_name" className="labels">
+                Full Name
+              </label>
+              <input
+                type="string"
+                className="form-control"
+                name="full_name"
+                onChange={(e) => inputsHandler(e)}
+              />
+            </div>
+
+            <div >
+              <label htmlFor="email" className="labels">
+                Email address
+              </label>
+              <input
+                type="email"
+                className="form-control"
+                name="email"
+                onChange={(e) => inputsHandler(e)}
+              />
+            </div>
+
+            <div>
+              <label htmlFor="phone" className="labels">
+                Phone number
+              </label>
+              <input
+                type="phone"
+                className="form-control"
+                name="phone"
+                onChange={(e) => inputsHandler(e)}
+              />
+            </div>
+
+            <div>
+              <label htmlFor="Address" className="labels">
+                Home Address
+              </label>
+              <input
+                type="string"
+                className="form-control"
+                name="homeAddress"
+                onChange={(e) => inputsHandler(e)}
+              />
+            </div>
+
+            <div>
+              <label htmlFor="Address" className="labels">
+                Shop Address
+              </label>
+              <input
+                type="string"
+                className="form-control"
+                name="shopAddress"
+                onChange={(e) => inputsHandler(e)}
+              />
+            </div>
+
+            <div>
+              <label htmlFor="Sname" className="labels">
+                Shop Name
+              </label>
+              <input
+                type="string"
+                className="form-control"
+                name="ShopName"
+                onChange={(e) => inputsHandler(e)}
+              />
+            </div>
+
+            <div>
+              <label htmlFor="Sphone" className="labels">
+                Shop Phone number
+              </label>
+              <input
+                type="phone"
+                className="form-control"
+                name="ShopPhone"
+                onChange={(e) => inputsHandler(e)}
+              />
+            </div>
+
+            <div>
+              <label htmlFor="product_name" className="labels">
+                Product Name
+              </label>
+              <input
+                type="string"
+                className="form-control"
+                name="productName"
+                onChange={(e) => inputsHandler(e)}
+              />
+            </div>
+
+            <div>
+              <label htmlFor="file" className="labels">
+                Product Image
+              </label>
+              {/* <input
+                type="file"
+                className="image_input"
+                name="file"
+                onChange={(e) => inputsHandler(e)}
+              /> */}
+              <input type="file" className="image_input" name="image_url" onChange={uploadImage}/>
+              {
+                  loading?(<h3>Loading....</h3>):(<img src={image} style={{width:'300px'}}/>)
+              }
+              {/* <button type="button" onClick={uploadImage}>
+               Upload
+              </button> */}
+            </div>
+            <div >
+              <label htmlFor="Snumber" className="labels">
+                Quantity in Stock
+              </label>
+              <input
+                type="number"
+                className="form-control"
+                name="Snumber"
+                onChange={(e) => inputsHandler(e)}
+              />
+            </div>
+
+            <button type="submit"  className="btn btn-primary" >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Form;
