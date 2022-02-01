@@ -11,7 +11,7 @@ import CartDetails from "./components/card-UI/CartDetails";
 import SellLogin from "./sellPage/SellLogin";
 import SellSignup from "./sellPage/SellSignup";
 import ProductForm from "../src/sellPage/ProductForm";
-
+import NewProductForm from "../src/sellPage/NewProductForm";
 /* import './components/header/style.css' */
 const App = () => {
   return (
@@ -26,6 +26,7 @@ const App = () => {
           <Route exact path="/Seller" component={SellLogin} />
           <Route exact path="/sellerSign" component={SellSignup} />
           <Route exact path="/ProductForm" component={ProductForm} />
+          <Route exact path="/NewProductForm" component={NewProductForm} />
         </Switch>
       </div>
     </ContextProvider>
