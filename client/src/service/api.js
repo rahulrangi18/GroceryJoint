@@ -48,3 +48,16 @@ export const getProducts = async() => {
         console.log('error while calling product api')
     }
 }
+
+
+
+export const productRegistration = async (product)=>{
+    try{
+        console.log('welcome store product')
+        return await axios.post(`${url}/newProduct`,product)
+    }catch (error){
+        console.log('error while calling api')
+
+    }
+
+}

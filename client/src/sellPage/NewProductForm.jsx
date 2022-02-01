@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-
+import { productRegistration } from '../service/api'
 
 const initializeValues = {
   full_name: "",
@@ -12,7 +12,6 @@ const initializeValues = {
   ShopPhone: "",
   productName: "",
   file: "",
-  Qnumber: "",
   Snumber: "",
 
 }
@@ -40,6 +39,7 @@ function Form() {
     setLoading(false)
   }
   const inputsHandler = (e) => {
+    e.preventDefault();
     // console.log(e.target.value)
     const { name, value } = e.target;
     setProduct({
@@ -49,10 +49,25 @@ function Form() {
     console.log(product);
   };
 
-  const submitButton = () => {
-    alert(product.full_name);
+  // const submitButton = () => {
+  //   alert(product.full_name);
+  //   uploadImage();
+  // };
+
+  const submitButton = async () => {
+
+    console.log(product);
+    console.log("rangiiiiiiiiiiiiiiiiiiiiiiii")
     uploadImage();
-  };
+    let response = await productRegistration(product);
+    // handleClose();
+    // if(!response) return console.log("response not found");
+    // setAccount(signup.username)
+    console.log(`${product.full_name} has registered`);
+
+  }
+
+
 
   return (
     <div className="mycontainer">
@@ -180,7 +195,7 @@ function Form() {
               />
             </div>
 
-            <button className="btn btn-primary" onClick={submitButton}>
+            <button className="btn btn-primary" onClick={() => submitButton()}>
               Submit
             </button>
           </form>
